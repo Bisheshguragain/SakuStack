@@ -103,6 +103,47 @@
   padding: 0 12px;
 }
 
+.mobileMenuIcon,
+.mobileMenuIconOpen {
+  display: grid;
+  gap: 4px;
+  height: 18px;
+  place-content: center;
+  position: relative;
+  width: 22px;
+}
+
+.mobileMenuIcon span,
+.mobileMenuIconOpen span {
+  background: #b6ff3d;
+  border-radius: 999px;
+  display: block;
+  height: 2px;
+  width: 22px;
+}
+
+.mobileMenuIconOpen {
+  gap: 0;
+}
+
+.mobileMenuIconOpen span {
+  left: 0;
+  position: absolute;
+  top: 8px;
+}
+
+.mobileMenuIconOpen span:first-child {
+  transform: rotate(45deg);
+}
+
+.mobileMenuIconOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobileMenuIconOpen span:last-child {
+  transform: rotate(-45deg);
+}
+
 .mobileMenuPanel {
   background: rgba(255, 255, 255, 0.97);
   border: 1px solid var(--line);

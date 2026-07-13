@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Menu, X } from "lucide-react";
+import { Mail } from "lucide-react";
 import { useState } from "react";
 
 import styles from "../page.module.css";
@@ -29,7 +29,14 @@ export default function MobileMenu() {
         onClick={() => setOpen((current) => !current)}
         type="button"
       >
-        {open ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
+        <span
+          className={open ? styles.mobileMenuIconOpen : styles.mobileMenuIcon}
+          aria-hidden="true"
+        >
+          <span />
+          <span />
+          <span />
+        </span>
         <span>Menu</span>
       </button>
 
