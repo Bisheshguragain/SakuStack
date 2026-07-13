@@ -2971,6 +2971,340 @@
   color: var(--ink);
 }
 
+/* Premium typography and surface refresh */
+.page {
+  --ink: #0a2540;
+  --muted: #425466;
+  --line: #e6ebf1;
+  --soft: #f6f9fc;
+  --green: #b6ff3d;
+  --green-dark: #3d7110;
+  --charcoal: #10233c;
+  --surface: #ffffff;
+  --surface-tint: #fbfdff;
+  --shadow-card: 0 18px 44px rgba(50, 50, 93, 0.07), 0 7px 18px rgba(0, 0, 0, 0.035);
+  --shadow-hover: 0 24px 58px rgba(50, 50, 93, 0.1), 0 10px 24px rgba(0, 0, 0, 0.045);
+  font-weight: 400;
+}
+
+.header {
+  box-shadow: 0 1px 0 rgba(10, 37, 64, 0.03);
+}
+
+.logo,
+.footerLogo {
+  font-weight: 720;
+}
+
+.nav,
+.navAction,
+.mobileMenuButton,
+.mobileMenuGrid a,
+.mobileContactLink,
+.primaryButton,
+.secondaryButton,
+.tabs button,
+.optionGroup button,
+.directoryTabs button,
+.directoryActions a,
+.dealToolGrid article div a,
+.signupForm button,
+.cookieActions button,
+.cardLink,
+.textLink,
+.footer a,
+.globalFooterGrid a,
+.footerBottomBar a,
+.categoryLinkList a,
+.legalToc a,
+.legalCard a {
+  font-weight: 620;
+}
+
+.heroCopy h1,
+.sectionTop h2,
+.quizCopy h2,
+.signup h2,
+.directoryHero h1,
+.dealsHero h1,
+.legalPage h1,
+.legalHero h1,
+.reviewHero h1,
+.categoryHero h1,
+.knowledgeHero h1,
+.articleHero h1 {
+  color: var(--ink);
+  font-weight: 670;
+  letter-spacing: 0;
+}
+
+.heroCopy p,
+.directoryHero > p,
+.dealsHero > p,
+.sectionTop p,
+.quizCopy p,
+.signup p,
+.legalPage p,
+.legalHero > p,
+.reviewHero > p,
+.categoryHero > p,
+.knowledgeHero > p,
+.articleHero > p,
+.articleIntroPanel p,
+.articleFramework p,
+.articleContentSection p,
+.articleCtaBand p,
+.guideCard p,
+.knowledgeCard p,
+.articleCard p,
+.toolMiniCard p,
+.categoryVisualBand p,
+.categoryAside p,
+.categoryAside li,
+.reviewArticle p,
+.legalCallout p,
+.legalCard p,
+.legalFinePrint,
+.dealToolGrid p,
+.directoryToolUse {
+  font-weight: 400;
+}
+
+.trendingCard strong,
+.directoryToolHead a,
+.comparisonCard strong,
+.useCaseCard h3,
+.dealToolGrid h3,
+.cardHead h3,
+.winnerCard h3,
+.recommendation h3,
+.guideCard h3,
+.legalPage h2,
+.legalCard h2,
+.reviewSection h2,
+.verdictCard h2,
+.proConGrid h2,
+.fitGrid h3,
+.featureBreakdown h3,
+.categoryVisualBand h2,
+.ratingMethodGrid strong,
+.categoryPageLink strong,
+.knowledgeCard h2,
+.articleCard h2,
+.articleIntroPanel h2,
+.articleFramework h2,
+.articleContentSection h2,
+.articleCtaBand h2,
+.toolMiniCard h3,
+.articleVerdictBox strong {
+  color: var(--ink);
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.panelHeader span,
+.panelRows span,
+.toolCard p,
+.cardMeta dt,
+.recommendation p,
+.guideCard span,
+.signupForm label,
+.trendingCard small,
+.comparisonCard span,
+.comparisonCard small,
+.directoryToolHead span,
+.dealToolGrid span,
+.directoryFeatureStrip span,
+.directoryMetaItem dt,
+.sectionTop .textLink,
+.winnerCard p,
+.winnerCard dt,
+.reviewCount,
+.categoryPageLink span,
+.categoryPageLink small,
+.categoryKicker,
+.backLink,
+.categoryStats span,
+.categoryAside h2,
+.toolLogoGrid small,
+.knowledgeCard span,
+.articleCard span,
+.knowledgeCard small,
+.articleCard small,
+.articleRow small,
+.articlePromiseGrid span,
+.articleEyebrow,
+.articleCtaBand span,
+.articleVerdictBox span,
+.reviewQuickFacts dt,
+.scoreCard span,
+.reviewSignalCard span,
+.reviewSignalCard small {
+  font-weight: 620;
+}
+
+.toolLogo {
+  font-weight: 680;
+}
+
+.rating,
+.score,
+.rank,
+.statusBadge,
+.reviewQuickFacts dd,
+.directoryMetaItem dd,
+.cardUse,
+.cardMeta dd,
+.toolCard li,
+.winnerCard dd,
+.featureBreakdown li,
+.faqList summary,
+.methodologyNote,
+.affiliateNote,
+.legalMetaGrid span,
+.legalChecklist span,
+.articlePromiseGrid strong {
+  font-weight: 560;
+}
+
+.mobileMenuPanel,
+.heroMedia,
+.floatingPanel,
+.trendingCard,
+.comparisonCard,
+.useCaseCard,
+.directoryToolCard,
+.dealTypeGrid div,
+.dealToolGrid article,
+.directorySearch,
+.toolCard,
+.guideCard,
+.winnerCard,
+.tableWrap,
+.quizPanel,
+.recommendation,
+.signupForm div,
+.legalToc,
+.legalCallout,
+.legalCard,
+.legalFinePrint,
+.reviewQuickFacts div,
+.verdictCard,
+.toolVisualPanel,
+.proConGrid section,
+.reviewSection,
+.scoreCard,
+.reviewSignalCard,
+.fitGrid > div,
+.featureBreakdown > div,
+.categoryPageLink,
+.categoryVisualBand,
+.toolLogoGrid a,
+.ratingMethodGrid div,
+.categoryAside > div,
+.articlePromiseGrid div,
+.knowledgeCard,
+.articleCard,
+.articleRow,
+.toolMiniCard,
+.knowledgeBlock,
+.articleIntroPanel,
+.articleFramework,
+.articleContentSection,
+.articleCtaBand,
+.checklistGrid div,
+.faqList details {
+  border-color: var(--line);
+  box-shadow: var(--shadow-card);
+}
+
+.toolCard,
+.guideCard,
+.winnerCard,
+.trendingCard,
+.comparisonCard,
+.useCaseCard,
+.directoryToolCard,
+.dealTypeGrid div,
+.dealToolGrid article,
+.categoryPageLink,
+.toolLogoGrid a,
+.knowledgeCard,
+.articleCard,
+.articleRow,
+.toolMiniCard {
+  background-color: var(--surface);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.trendingCard:hover,
+.comparisonCard:hover,
+.useCaseCard:hover,
+.directoryToolCard:hover,
+.dealToolGrid article:hover,
+.categoryPageLink:hover,
+.toolLogoGrid a:hover,
+.knowledgeCard:hover,
+.articleCard:hover,
+.articleRow:hover,
+.guideCard:hover {
+  border-color: #bfe0a3;
+  box-shadow: var(--shadow-hover);
+}
+
+.productBand,
+.directoryHero,
+.dealsHero,
+.directoryResults,
+.reviewHero,
+.categoryHero,
+.knowledgeHero,
+.articleHero,
+.legalShell {
+  background: linear-gradient(180deg, var(--soft) 0%, #ffffff 100%);
+}
+
+.toolCard[data-niche],
+.categoryPageLink[data-niche],
+.knowledgeCard[data-niche] {
+  background:
+    linear-gradient(90deg, var(--niche-accent, var(--green)) 0 5px, transparent 5px),
+    linear-gradient(135deg, var(--niche-bg, #ffffff), #ffffff 76%);
+}
+
+.heroMedia {
+  box-shadow: 0 28px 70px rgba(50, 50, 93, 0.13), 0 10px 24px rgba(0, 0, 0, 0.05);
+}
+
+.floatingPanel {
+  box-shadow: 0 20px 48px rgba(50, 50, 93, 0.13), 0 8px 18px rgba(0, 0, 0, 0.05);
+}
+
+.primaryButton {
+  box-shadow: 0 10px 24px rgba(69, 124, 19, 0.14);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.navAction:hover,
+.directoryActions a:hover,
+.dealToolGrid article div a:hover {
+  transform: translateY(-1px);
+}
+
+.tableWrap th {
+  background: #10233c;
+  font-weight: 620;
+}
+
+.tableWrap td,
+.cardUse,
+.toolCard li,
+.directoryToolUse,
+.dealToolGrid p {
+  color: #334155;
+}
+
 @media (max-width: 1120px) {
   .globalFooterGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
