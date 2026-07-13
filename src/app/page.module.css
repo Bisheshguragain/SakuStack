@@ -3305,6 +3305,34 @@
   color: #334155;
 }
 
+.winners .sectionTop h2,
+.quizCopy h2,
+.legalHero h1,
+.articleVerdictBox strong,
+.cookieBanner strong {
+  color: #ffffff;
+}
+
+.winners .sectionTop p,
+.quizCopy p,
+.legalHero > p,
+.articleVerdictBox p,
+.cookieBanner p {
+  color: #d8e2ea;
+}
+
+.quizSection .textLink,
+.winners .textLink,
+.legalHero .backLink {
+  color: #ffffff;
+}
+
+.quizSection .textLink:hover,
+.winners .textLink:hover,
+.legalHero .backLink:hover {
+  color: var(--green);
+}
+
 @media (max-width: 1120px) {
   .globalFooterGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
