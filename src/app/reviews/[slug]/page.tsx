@@ -26,6 +26,7 @@ import {
   ratingMethodologyNote,
   reviewCons,
   reviewPros,
+  reviewSignals,
   reviewSeoDescription,
   reviewSeoTitle,
   siteName,
@@ -159,6 +160,7 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
   const faqs = reviewFaq(tool);
   const pricingItems = pricingChecklist(tool);
   const evidenceItems = evidenceChecklist(tool);
+  const signals = reviewSignals(tool);
   const alternatives = uniqueSoftware
     .filter((candidate) => candidate.niche === tool.niche && candidate.name !== tool.name)
     .slice(0, 4);
@@ -366,6 +368,37 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
                 SakuStack methodology
               </Link>
               .
+            </p>
+          </section>
+
+          <section className={styles.reviewSection}>
+            <h2>{tool.name} review ratings compared</h2>
+            <p>
+              Use this table to compare SakuStack&apos;s editorial score with
+              public third-party review signals. G2 and Capterra ratings can
+              change over time, so verify the latest source profile before
+              making a purchase decision.
+            </p>
+            <div className={styles.reviewSignalsGrid}>
+              {signals.map((signal) => (
+                <div
+                  className={styles.reviewSignalCard}
+                  data-status={signal.status}
+                  key={`${tool.name}-${signal.source}`}
+                >
+                  <span>{signal.source}</span>
+                  <strong>{signal.rating}</strong>
+                  <small>{signal.status}</small>
+                  <p>{signal.reviews}</p>
+                  <p>Last checked: {signal.lastChecked}</p>
+                  <p>{signal.role}</p>
+                </div>
+              ))}
+            </div>
+            <p className={styles.methodologyNote}>
+              Third-party review signals are shown separately from the
+              SakuStack editorial score. We do not combine them into one rating
+              because each source measures something different.
             </p>
           </section>
 

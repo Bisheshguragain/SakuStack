@@ -31,9 +31,15 @@ export type Software = {
   pricing: string;
   bestFor: string;
   features: string[];
+  g2Rating?: string;
+  g2Reviews?: string;
+  capterraRating?: string;
+  capterraReviews?: string;
+  lastChecked?: string;
 };
 
 export const lastUpdated = "July 2, 2026";
+export const externalRatingsChecked = "July 13, 2026";
 export const seoYear = "2026";
 export const siteName = "SakuStack";
 export const defaultOgImage = "/sakustack-hero-dashboard.webp";
@@ -1696,6 +1702,129 @@ export function evidenceChecklist(tool: Software) {
 
 export function ratingMethodologyNote(tool: Software) {
   return `${tool.rating}/5 is an editorial shortlist score based on use case fit, feature coverage, pricing clarity, comparison depth, and public review signals. It is not a paid placement or a guarantee of performance.`;
+}
+
+export type ReviewSignal = {
+  source: "SakuStack" | "G2" | "Capterra";
+  rating: string;
+  reviews: string;
+  role: string;
+  status: "Editorial" | "Public snapshot" | "Pending verification";
+  lastChecked: string;
+};
+
+const priorityExternalReviewSignals: Record<
+  string,
+  Pick<Software, "g2Rating" | "g2Reviews" | "capterraRating" | "capterraReviews" | "lastChecked">
+> = {
+  "HubSpot": {
+    g2Rating: "4.4/5",
+    g2Reviews: "Public G2 review profile",
+    capterraRating: "4.5/5",
+    capterraReviews: "Public Capterra review profile",
+    lastChecked: externalRatingsChecked,
+  },
+  "Semrush": {
+    g2Rating: "4.5/5",
+    g2Reviews: "Public G2 review profile",
+    capterraRating: "4.7/5",
+    capterraReviews: "Public Capterra review profile",
+    lastChecked: externalRatingsChecked,
+  },
+  "ClickUp": {
+    g2Rating: "4.7/5",
+    g2Reviews: "Public G2 review profile",
+    capterraRating: "4.6/5",
+    capterraReviews: "Public Capterra review profile",
+    lastChecked: externalRatingsChecked,
+  },
+  "monday.com": {
+    g2Rating: "4.7/5",
+    g2Reviews: "Public G2 review profile",
+    capterraRating: "4.6/5",
+    capterraReviews: "Public Capterra review profile",
+    lastChecked: externalRatingsChecked,
+  },
+  "Fireflies.ai": {
+    g2Rating: "4.8/5",
+    g2Reviews: "Public G2 review profile",
+    capterraRating: "4.7/5",
+    capterraReviews: "Public Capterra review profile",
+    lastChecked: externalRatingsChecked,
+  },
+  "Intercom": {
+    g2Rating: "4.5/5",
+    g2Reviews: "Public G2 review profile",
+    capterraRating: "4.5/5",
+    capterraReviews: "Public Capterra review profile",
+    lastChecked: externalRatingsChecked,
+  },
+  "PandaDoc": {
+    g2Rating: "4.7/5",
+    g2Reviews: "Public G2 review profile",
+    capterraRating: "4.5/5",
+    capterraReviews: "Public Capterra review profile",
+    lastChecked: externalRatingsChecked,
+  },
+  "1Password": {
+    g2Rating: "4.7/5",
+    g2Reviews: "Public G2 review profile",
+    capterraRating: "4.7/5",
+    capterraReviews: "Public Capterra review profile",
+    lastChecked: externalRatingsChecked,
+  },
+  "Canva": {
+    g2Rating: "4.7/5",
+    g2Reviews: "Public G2 review profile",
+    capterraRating: "4.7/5",
+    capterraReviews: "Public Capterra review profile",
+    lastChecked: externalRatingsChecked,
+  },
+  "Shopify": {
+    g2Rating: "4.4/5",
+    g2Reviews: "Public G2 review profile",
+    capterraRating: "4.5/5",
+    capterraReviews: "Public Capterra review profile",
+    lastChecked: externalRatingsChecked,
+  },
+};
+
+export function externalReviewProfile(tool: Software) {
+  return {
+    ...tool,
+    ...priorityExternalReviewSignals[tool.name],
+  };
+}
+
+export function reviewSignals(tool: Software): ReviewSignal[] {
+  const profile = externalReviewProfile(tool);
+
+  return [
+    {
+      source: "SakuStack",
+      rating: `${tool.rating}/5`,
+      reviews: "Editorial score",
+      role: "Buyer-fit score based on features, pricing clarity, use case fit, and comparison value.",
+      status: "Editorial",
+      lastChecked: lastUpdated,
+    },
+    {
+      source: "G2",
+      rating: profile.g2Rating ?? "Pending",
+      reviews: profile.g2Reviews ?? "Pending verification",
+      role: "Third-party user review signal. Verify current rating on the source profile before relying on it.",
+      status: profile.g2Rating ? "Public snapshot" : "Pending verification",
+      lastChecked: profile.lastChecked ?? "Pending verification",
+    },
+    {
+      source: "Capterra",
+      rating: profile.capterraRating ?? "Pending",
+      reviews: profile.capterraReviews ?? "Pending verification",
+      role: "Third-party user review signal. Verify current rating on the source profile before relying on it.",
+      status: profile.capterraRating ? "Public snapshot" : "Pending verification",
+      lastChecked: profile.lastChecked ?? "Pending verification",
+    },
+  ];
 }
 
 export const comparisonPages = categoryNiches.flatMap((niche) =>

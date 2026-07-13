@@ -1553,6 +1553,7 @@
 }
 
 .scoreGrid,
+.reviewSignalsGrid,
 .fitGrid,
 .featureBreakdown {
   display: grid;
@@ -1561,6 +1562,7 @@
 }
 
 .scoreCard,
+.reviewSignalCard,
 .fitGrid > div,
 .featureBreakdown > div {
   background: var(--soft);
@@ -1569,9 +1571,60 @@
   padding: 18px;
 }
 
-.scoreCard {
+.scoreCard,
+.reviewSignalCard {
   display: grid;
   gap: 8px;
+}
+
+.reviewSignalsGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.reviewSignalCard {
+  background: #ffffff;
+}
+
+.reviewSignalCard[data-status="Editorial"] {
+  border-color: #b7d980;
+  box-shadow: inset 0 0 0 1px rgba(140, 190, 45, 0.12);
+}
+
+.reviewSignalCard[data-status="Public snapshot"] {
+  border-color: #c9d7eb;
+}
+
+.reviewSignalCard[data-status="Pending verification"] {
+  background: #faf9f5;
+  border-style: dashed;
+}
+
+.reviewSignalCard span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.reviewSignalCard strong {
+  color: var(--ink);
+  font-size: 34px;
+  line-height: 1;
+}
+
+.reviewSignalCard small {
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.reviewSignalCard p {
+  color: var(--muted);
+  font-size: 14px !important;
+  line-height: 1.45 !important;
+  margin: 0 !important;
 }
 
 .scoreCard strong {
@@ -2464,6 +2517,7 @@
 
   .articlePromiseGrid,
   .checklistGrid,
+  .reviewSignalsGrid,
   .ratingMethodGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2551,6 +2605,7 @@
 
   .reviewQuickFacts,
   .scoreGrid,
+  .reviewSignalsGrid,
   .fitGrid,
   .featureBreakdown,
   .legalMetaGrid,
