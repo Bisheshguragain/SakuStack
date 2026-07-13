@@ -564,6 +564,61 @@
   --niche-row: #fff9f1;
 }
 
+.toolCard[data-niche="Forms & surveys"],
+.categoryPageLink[data-niche="Forms & surveys"],
+.tableWrap tr[data-niche="Forms & surveys"] {
+  --niche-accent: #7c4bb1;
+  --niche-bg: #f5efff;
+  --niche-border: #d9c4ef;
+  --niche-chip: #eadcf8;
+  --niche-text: #5d3488;
+  --niche-row: #faf6ff;
+}
+
+.toolCard[data-niche="Docs & knowledge base"],
+.categoryPageLink[data-niche="Docs & knowledge base"],
+.tableWrap tr[data-niche="Docs & knowledge base"] {
+  --niche-accent: #56606f;
+  --niche-bg: #f1f4f7;
+  --niche-border: #cfd6de;
+  --niche-chip: #e0e6ec;
+  --niche-text: #3d4754;
+  --niche-row: #f7f9fb;
+}
+
+.toolCard[data-niche="Scheduling & calendar"],
+.categoryPageLink[data-niche="Scheduling & calendar"],
+.tableWrap tr[data-niche="Scheduling & calendar"] {
+  --niche-accent: #1f7db8;
+  --niche-bg: #edf7ff;
+  --niche-border: #c2def1;
+  --niche-chip: #d8ecfa;
+  --niche-text: #155d8b;
+  --niche-row: #f5fbff;
+}
+
+.toolCard[data-niche="Design & creator tools"],
+.categoryPageLink[data-niche="Design & creator tools"],
+.tableWrap tr[data-niche="Design & creator tools"] {
+  --niche-accent: #d04763;
+  --niche-bg: #fff0f3;
+  --niche-border: #efbfca;
+  --niche-chip: #f9d9e0;
+  --niche-text: #9a2d43;
+  --niche-row: #fff7f9;
+}
+
+.toolCard[data-niche="Password & security"],
+.categoryPageLink[data-niche="Password & security"],
+.tableWrap tr[data-niche="Password & security"] {
+  --niche-accent: #39484a;
+  --niche-bg: #eef5f4;
+  --niche-border: #c8d8d6;
+  --niche-chip: #dce9e7;
+  --niche-text: #273839;
+  --niche-row: #f5faf9;
+}
+
 .cardHead {
   justify-content: space-between;
   gap: 16px;

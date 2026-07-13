@@ -14,7 +14,12 @@ export type Niche =
   | "AI meeting notes"
   | "Video & podcast tools"
   | "Customer support software"
-  | "Proposal & e-signature";
+  | "Proposal & e-signature"
+  | "Forms & surveys"
+  | "Docs & knowledge base"
+  | "Scheduling & calendar"
+  | "Design & creator tools"
+  | "Password & security";
 
 export type CategoryNiche = Exclude<Niche, "All">;
 
@@ -57,6 +62,11 @@ export const niches: Niche[] = [
   "Video & podcast tools",
   "Customer support software",
   "Proposal & e-signature",
+  "Forms & surveys",
+  "Docs & knowledge base",
+  "Scheduling & calendar",
+  "Design & creator tools",
+  "Password & security",
 ];
 
 export const categoryNiches = niches.filter(
@@ -112,23 +122,23 @@ export function breadcrumbStructuredData(
 }
 
 function truncateMetaDescription(description: string) {
-  if (description.length <= 158) {
+  if (description.length <= 154) {
     return description;
   }
 
-  const trimmed = description.slice(0, 155);
+  const trimmed = description.slice(0, 151);
   const lastSpace = trimmed.lastIndexOf(" ");
-  return `${trimmed.slice(0, lastSpace > 120 ? lastSpace : 155).trim()}...`;
+  return `${trimmed.slice(0, lastSpace > 118 ? lastSpace : 151).trim()}...`;
 }
 
 function truncateSeoTitle(title: string) {
-  if (title.length <= 60) {
+  if (title.length <= 48) {
     return title;
   }
 
-  const trimmed = title.slice(0, 57);
+  const trimmed = title.slice(0, 45);
   const lastSpace = trimmed.lastIndexOf(" ");
-  return `${trimmed.slice(0, lastSpace > 42 ? lastSpace : 57).trim()}...`;
+  return `${trimmed.slice(0, lastSpace > 34 ? lastSpace : 45).trim()}...`;
 }
 
 export function categorySeoTitle(summary: { title: string }) {
@@ -157,7 +167,7 @@ export function reviewSeoDescription(tool: Software) {
 }
 
 export function compareSeoTitle(comparison: { title: string }) {
-  return truncateSeoTitle(`${comparison.title} ${seoYear}: Features & Verdict`);
+  return truncateSeoTitle(`${comparison.title} ${seoYear}: Verdict`);
 }
 
 export function compareSeoDescription(comparison: {
@@ -285,21 +295,62 @@ export const categorySummaries: Record<
     searchIntent: "Targets buyer searches like best proposal software, PandaDoc alternatives, DocuSign vs Dropbox Sign, and e-signature tools.",
     comparisonIdeas: ["PandaDoc vs DocuSign", "Dropbox Sign vs DocuSign", "Better Proposals vs Proposify"],
   },
+  "Forms & surveys": {
+    title: "Best Form and Survey Builders",
+    description:
+      "Compare form, survey, quiz, lead capture, intake, payment, and workflow builders for marketers, agencies, SaaS teams, creators, and operations teams.",
+    searchIntent: "Targets searches like best form builder, Typeform alternatives, Jotform vs Fillout, and survey software for lead capture.",
+    comparisonIdeas: ["Jotform vs Fillout", "Tally vs Jotform", "Paperform vs Formstack"],
+  },
+  "Docs & knowledge base": {
+    title: "Best Docs and Knowledge Base Tools",
+    description:
+      "Compare collaborative docs, wikis, internal knowledge bases, SOP libraries, team portals, AI search, and documentation platforms.",
+    searchIntent: "Targets searches like best knowledge base software, Coda alternatives, Confluence vs Slite, and internal wiki tools.",
+    comparisonIdeas: ["Coda vs Confluence", "Slite vs Guru", "Nuclino vs Slab"],
+  },
+  "Scheduling & calendar": {
+    title: "Best Scheduling and Calendar Tools",
+    description:
+      "Compare scheduling, booking, AI calendar, focus time, task planning, team availability, and meeting automation tools for busy teams.",
+    searchIntent: "Targets searches like best scheduling app, Calendly alternatives, Motion vs Reclaim, and AI calendar tools.",
+    comparisonIdeas: ["Calendly vs SavvyCal", "Motion vs Reclaim.ai", "Clockwise vs Akiflow"],
+  },
+  "Design & creator tools": {
+    title: "Best Design and Creator Tools",
+    description:
+      "Compare design, presentation, social graphics, interface design, visual content, templates, brand assets, and creator production tools.",
+    searchIntent: "Targets searches like Canva alternatives, best design tools, Figma vs Adobe Express, and creator design software.",
+    comparisonIdeas: ["Canva vs Adobe Express", "Figma vs Canva", "Visme vs Piktochart"],
+  },
+  "Password & security": {
+    title: "Best Password and Security Tools",
+    description:
+      "Compare password managers and team security tools for vaults, secure sharing, passkeys, admin controls, audits, SSO, and business protection.",
+    searchIntent: "Targets searches like best password manager for teams, 1Password alternatives, NordPass vs Dashlane, and business password security.",
+    comparisonIdeas: ["1Password vs NordPass", "Dashlane vs Keeper", "Bitwarden vs Proton Pass"],
+  },
 };
 
 export const toolUrls: Record<string, string> = {
   "ActiveCampaign": "https://www.activecampaign.com/",
   "Ahrefs": "https://ahrefs.com/",
+  "1Password": "https://1password.com/",
   "Airtable": "https://www.airtable.com/",
+  "Adobe Express": "https://www.adobe.com/express/",
+  "Akiflow": "https://akiflow.com/",
   "AWeber": "https://www.aweber.com/",
   "Base44": "https://base44.com/",
   "BigCommerce": "https://www.bigcommerce.com/",
+  "Bitwarden": "https://bitwarden.com/",
   "Bluehost": "https://www.bluehost.com/",
   "Bolt.new": "https://bolt.new/",
   "Asana": "https://asana.com/",
   "Avoma": "https://www.avoma.com/",
   "Better Proposals": "https://betterproposals.io/",
   "Camtasia": "https://www.techsmith.com/camtasia/",
+  "Calendly": "https://calendly.com/",
+  "Canva": "https://www.canva.com/",
   "ChatGPT": "https://chatgpt.com/",
   "Claude": "https://claude.ai/",
   "Claude Code": "https://www.anthropic.com/claude-code",
@@ -308,12 +359,21 @@ export const toolUrls: Record<string, string> = {
   "Cloudways": "https://www.cloudways.com/",
   "Codeium / Windsurf": "https://windsurf.com/",
   "Crisp": "https://crisp.chat/",
+  "Coda": "https://coda.io/",
+  "Confluence": "https://www.atlassian.com/software/confluence",
+  "Clockwise": "https://www.getclockwise.com/",
   "Cursor": "https://cursor.com/",
+  "Dashlane": "https://www.dashlane.com/",
   "Descript": "https://www.descript.com/",
   "DocuSign": "https://www.docusign.com/",
   "Dropbox Sign": "https://sign.dropbox.com/",
+  "Envato Elements": "https://elements.envato.com/",
   "Fathom": "https://fathom.video/",
+  "Feathery": "https://www.feathery.io/",
+  "Figma": "https://www.figma.com/",
+  "Fillout": "https://www.fillout.com/",
   "Fireflies.ai": "https://fireflies.ai/",
+  "Formstack": "https://www.formstack.com/",
   "Frase": "https://www.frase.io/",
   "Freshdesk": "https://www.freshworks.com/freshdesk/",
   "Freshsales": "https://www.freshworks.com/crm/sales/",
@@ -321,46 +381,61 @@ export const toolUrls: Record<string, string> = {
   "GetResponse": "https://www.getresponse.com/",
   "GitHub Copilot": "https://github.com/features/copilot",
   "GoHighLevel": "https://www.gohighlevel.com/",
+  "Guru": "https://www.getguru.com/",
   "Hostinger": "https://www.hostinger.com/",
   "Hostinger Horizons": "https://www.hostinger.com/horizons",
   "HubSpot": "https://www.hubspot.com/",
   "Help Scout": "https://www.helpscout.com/",
   "Intercom": "https://www.intercom.com/",
+  "Jotform": "https://www.jotform.com/",
   "Kajabi": "https://kajabi.com/",
   "Kinsta": "https://kinsta.com/",
+  "Keeper": "https://www.keepersecurity.com/",
   "Kit / ConvertKit": "https://kit.com/",
   "Lovable": "https://lovable.dev/",
   "Loom": "https://www.loom.com/",
   "MailerLite": "https://www.mailerlite.com/",
   "Make": "https://www.make.com/",
   "monday.com": "https://monday.com/",
+  "Motion": "https://www.usemotion.com/",
+  "NordPass": "https://nordpass.com/",
+  "Nuclino": "https://www.nuclino.com/",
   "Notion": "https://www.notion.com/",
   "Otter.ai": "https://otter.ai/",
   "PandaDoc": "https://www.pandadoc.com/",
+  "Paperform": "https://paperform.co/",
   "Perplexity": "https://www.perplexity.ai/",
+  "Piktochart": "https://piktochart.com/",
   "Pipedrive": "https://www.pipedrive.com/",
   "Podia": "https://www.podia.com/",
   "Poe": "https://poe.com/",
   "Proposify": "https://www.proposify.com/",
+  "Proton Pass": "https://proton.me/pass",
   "Qwilr": "https://qwilr.com/",
+  "Reclaim.ai": "https://reclaim.ai/",
   "Replit": "https://replit.com/",
   "Riverside": "https://riverside.fm/",
   "Screen Studio": "https://www.screen.studio/",
   "SE Ranking": "https://seranking.com/",
   "Sembly": "https://www.sembly.ai/",
+  "SavvyCal": "https://savvycal.com/",
   "Sellfy": "https://sellfy.com/",
   "Semrush": "https://www.semrush.com/",
   "Shopify": "https://www.shopify.com/",
   "Smartsheet": "https://www.smartsheet.com/",
   "Softr": "https://www.softr.io/",
+  "Slab": "https://slab.com/",
+  "Slite": "https://slite.com/",
   "Squarespace": "https://www.squarespace.com/",
   "Surfer": "https://surferseo.com/",
   "Teachable": "https://teachable.com/",
   "Thinkific": "https://www.thinkific.com/",
+  "Tally": "https://tally.so/",
   "Tidio": "https://www.tidio.com/",
   "tl;dv": "https://tldv.io/",
   "Typeform": "https://www.typeform.com/",
   "VEED": "https://www.veed.io/",
+  "Visme": "https://www.visme.co/",
   "Windsurf": "https://windsurf.com/",
   "Wix": "https://www.wix.com/",
   "WP Engine": "https://wpengine.com/",
@@ -1100,6 +1175,276 @@ export const software: Software[] = [
     bestFor: "Interactive sales proposals, microsites, quotes, and buyer-facing deal rooms",
     features: ["Interactive proposals", "Quotes", "Analytics"],
   },
+  {
+    niche: "Forms & surveys",
+    name: "Jotform",
+    rating: 4.7,
+    reviews: "Strong G2/Capterra signal",
+    pricing: "Free; paid plans commonly start around $34/mo annually",
+    bestFor: "Forms, surveys, approvals, payments, and no-code data collection workflows",
+    features: ["Form builder", "Approvals", "Payments"],
+  },
+  {
+    niche: "Forms & surveys",
+    name: "Tally",
+    rating: 4.6,
+    reviews: "Fast-growing maker reviews",
+    pricing: "Free; Pro commonly starts around $29/mo",
+    bestFor: "Fast, clean forms for founders, creators, startups, and lightweight surveys",
+    features: ["Unlimited forms", "Logic", "Payments"],
+  },
+  {
+    niche: "Forms & surveys",
+    name: "Fillout",
+    rating: 4.6,
+    reviews: "Strong no-code reviews",
+    pricing: "Free; paid plans commonly start around $15/mo",
+    bestFor: "Modern forms, quizzes, Airtable-connected workflows, and customer intake",
+    features: ["Forms", "Quizzes", "Integrations"],
+  },
+  {
+    niche: "Forms & surveys",
+    name: "Paperform",
+    rating: 4.5,
+    reviews: "Creator and agency reviews",
+    pricing: "Essentials commonly starts around $20/mo annually",
+    bestFor: "Branded forms, landing-page style surveys, payments, and service intake",
+    features: ["Branded forms", "Payments", "Calculations"],
+  },
+  {
+    niche: "Forms & surveys",
+    name: "Formstack",
+    rating: 4.4,
+    reviews: "Business workflow reviews",
+    pricing: "Forms plans commonly start around $50/mo annually",
+    bestFor: "Business forms, document workflows, approvals, compliance, and operations",
+    features: ["Forms", "Workflows", "Documents"],
+  },
+  {
+    niche: "Forms & surveys",
+    name: "Feathery",
+    rating: 4.5,
+    reviews: "Product and SaaS team reviews",
+    pricing: "Free; paid plans commonly start around $49/mo",
+    bestFor: "Advanced signup flows, product forms, onboarding, and conditional intake workflows",
+    features: ["Advanced forms", "Conditional logic", "Integrations"],
+  },
+  {
+    niche: "Docs & knowledge base",
+    name: "Coda",
+    rating: 4.6,
+    reviews: "Strong team docs reviews",
+    pricing: "Free; Pro commonly starts around $10/doc maker/mo annually",
+    bestFor: "Docs that behave like apps, team workflows, trackers, and operating systems",
+    features: ["Docs", "Tables", "Packs"],
+  },
+  {
+    niche: "Docs & knowledge base",
+    name: "Confluence",
+    rating: 4.4,
+    reviews: "Enterprise known",
+    pricing: "Free; Standard commonly starts around $6.40/user/mo annually",
+    bestFor: "Company wikis, project documentation, technical knowledge, and Atlassian teams",
+    features: ["Pages", "Spaces", "Atlassian sync"],
+  },
+  {
+    niche: "Docs & knowledge base",
+    name: "Slite",
+    rating: 4.5,
+    reviews: "Remote team reviews",
+    pricing: "Standard commonly starts around $8/member/mo annually",
+    bestFor: "Remote team knowledge bases, handbook pages, decisions, and internal docs",
+    features: ["Knowledge base", "AI answers", "Docs"],
+  },
+  {
+    niche: "Docs & knowledge base",
+    name: "Guru",
+    rating: 4.6,
+    reviews: "Strong support/sales reviews",
+    pricing: "Plans commonly start around $15/user/mo",
+    bestFor: "Verified company knowledge, sales enablement, support answers, and AI search",
+    features: ["Knowledge cards", "Verification", "AI search"],
+  },
+  {
+    niche: "Docs & knowledge base",
+    name: "Nuclino",
+    rating: 4.5,
+    reviews: "Lightweight wiki reviews",
+    pricing: "Free; Standard commonly starts around $6/user/mo annually",
+    bestFor: "Simple team wikis, collaborative docs, project notes, and internal knowledge",
+    features: ["Wiki", "Graph view", "Docs"],
+  },
+  {
+    niche: "Docs & knowledge base",
+    name: "Slab",
+    rating: 4.5,
+    reviews: "Knowledge base reviews",
+    pricing: "Free; Startup commonly starts around $6.67/user/mo annually",
+    bestFor: "Internal knowledge bases, team docs, onboarding, and searchable company answers",
+    features: ["Topics", "Search", "Integrations"],
+  },
+  {
+    niche: "Scheduling & calendar",
+    name: "Calendly",
+    rating: 4.7,
+    reviews: "High awareness reviews",
+    pricing: "Free; Standard commonly starts around $10/seat/mo annually",
+    bestFor: "Meeting booking, routing, reminders, team scheduling, and sales calendars",
+    features: ["Scheduling links", "Routing", "Reminders"],
+  },
+  {
+    niche: "Scheduling & calendar",
+    name: "SavvyCal",
+    rating: 4.5,
+    reviews: "Founder-friendly reviews",
+    pricing: "Basic commonly starts around $12/user/mo",
+    bestFor: "Polished scheduling links, calendar overlays, and consultant booking workflows",
+    features: ["Calendar overlay", "Scheduling links", "Team scheduling"],
+  },
+  {
+    niche: "Scheduling & calendar",
+    name: "Motion",
+    rating: 4.5,
+    reviews: "AI productivity reviews",
+    pricing: "Individual plans commonly start around $19/mo annually",
+    bestFor: "AI calendar planning, task scheduling, focus time, and daily workload control",
+    features: ["AI calendar", "Task planning", "Project scheduling"],
+  },
+  {
+    niche: "Scheduling & calendar",
+    name: "Reclaim.ai",
+    rating: 4.6,
+    reviews: "Strong calendar reviews",
+    pricing: "Free; Starter commonly starts around $8/user/mo annually",
+    bestFor: "Smart calendar blocking, habits, focus time, team scheduling, and availability",
+    features: ["Smart blocking", "Habits", "Focus time"],
+  },
+  {
+    niche: "Scheduling & calendar",
+    name: "Clockwise",
+    rating: 4.4,
+    reviews: "Team calendar reviews",
+    pricing: "Free; paid plans commonly start around $6.75/user/mo annually",
+    bestFor: "Focus time protection, calendar optimization, meeting moves, and team schedules",
+    features: ["Focus time", "Calendar optimization", "Team availability"],
+  },
+  {
+    niche: "Scheduling & calendar",
+    name: "Akiflow",
+    rating: 4.5,
+    reviews: "Power-user reviews",
+    pricing: "Plans commonly start around $19/mo annually",
+    bestFor: "Task inbox, calendar planning, time blocking, and personal productivity systems",
+    features: ["Task inbox", "Time blocking", "Calendar planning"],
+  },
+  {
+    niche: "Design & creator tools",
+    name: "Canva",
+    rating: 4.7,
+    reviews: "High awareness reviews",
+    pricing: "Free; Pro commonly starts around $15/person/mo",
+    bestFor: "Social graphics, presentations, brand templates, quick design, and creator assets",
+    features: ["Templates", "Brand kit", "AI design"],
+  },
+  {
+    niche: "Design & creator tools",
+    name: "Adobe Express",
+    rating: 4.5,
+    reviews: "Strong creator reviews",
+    pricing: "Free; Premium commonly starts around $9.99/mo",
+    bestFor: "Quick graphics, social content, Adobe asset workflows, and creator campaigns",
+    features: ["Templates", "Generative AI", "Social content"],
+  },
+  {
+    niche: "Design & creator tools",
+    name: "Figma",
+    rating: 4.8,
+    reviews: "Design team favorite",
+    pricing: "Free; Professional commonly starts around $12/editor/mo annually",
+    bestFor: "Interface design, prototypes, design systems, collaboration, and product teams",
+    features: ["Design files", "Prototyping", "FigJam"],
+  },
+  {
+    niche: "Design & creator tools",
+    name: "Visme",
+    rating: 4.5,
+    reviews: "Presentation and content reviews",
+    pricing: "Basic free; Starter commonly starts around $12.25/mo annually",
+    bestFor: "Presentations, infographics, reports, branded content, and visual documents",
+    features: ["Presentations", "Infographics", "Brand assets"],
+  },
+  {
+    niche: "Design & creator tools",
+    name: "Piktochart",
+    rating: 4.4,
+    reviews: "Infographic reviews",
+    pricing: "Free; Pro commonly starts around $14/member/mo annually",
+    bestFor: "Infographics, reports, visual stories, presentations, and marketing graphics",
+    features: ["Infographics", "Reports", "Visual templates"],
+  },
+  {
+    niche: "Design & creator tools",
+    name: "Envato Elements",
+    rating: 4.5,
+    reviews: "Creator asset reviews",
+    pricing: "Individual plans commonly start around $16.50/mo annually",
+    bestFor: "Templates, stock assets, fonts, videos, design files, and creator production",
+    features: ["Templates", "Stock assets", "Fonts"],
+  },
+  {
+    niche: "Password & security",
+    name: "1Password",
+    rating: 4.8,
+    reviews: "Strong business reviews",
+    pricing: "Individual from about $2.99/mo; Teams Starter commonly around $19.95/mo",
+    bestFor: "Password management, passkeys, secure sharing, admin controls, and business vaults",
+    features: ["Vaults", "Passkeys", "Admin controls"],
+  },
+  {
+    niche: "Password & security",
+    name: "NordPass",
+    rating: 4.6,
+    reviews: "Strong security reviews",
+    pricing: "Personal and business plans; business pricing commonly starts around $3.59/user/mo",
+    bestFor: "Password vaults, secure sharing, business admin tools, and Nord ecosystem users",
+    features: ["Password vault", "Data breach scanner", "Secure sharing"],
+  },
+  {
+    niche: "Password & security",
+    name: "Dashlane",
+    rating: 4.5,
+    reviews: "Business security reviews",
+    pricing: "Business plans commonly start around $8/user/mo annually",
+    bestFor: "Password management, credential security, dark web monitoring, and team policies",
+    features: ["Password manager", "Dark web monitoring", "Admin console"],
+  },
+  {
+    niche: "Password & security",
+    name: "Keeper",
+    rating: 4.6,
+    reviews: "Strong enterprise reviews",
+    pricing: "Business plans commonly start around $2/user/mo annually",
+    bestFor: "Enterprise password management, secrets management, secure sharing, and compliance",
+    features: ["Vaults", "Secrets manager", "Compliance"],
+  },
+  {
+    niche: "Password & security",
+    name: "Bitwarden",
+    rating: 4.7,
+    reviews: "Open-source favorite",
+    pricing: "Free; Teams commonly starts around $4/user/mo",
+    bestFor: "Open-source password management, teams, secure vaults, and value-focused security",
+    features: ["Open source", "Vaults", "Admin policies"],
+  },
+  {
+    niche: "Password & security",
+    name: "Proton Pass",
+    rating: 4.5,
+    reviews: "Privacy-focused reviews",
+    pricing: "Free; paid plans commonly start around $4.99/mo",
+    bestFor: "Privacy-focused password management, aliases, secure sharing, and Proton users",
+    features: ["Password vault", "Email aliases", "Passkeys"],
+  },
 ];
 
 export const winners = [
@@ -1187,6 +1532,34 @@ export const winners = [
     pageAngle: "Best podcast recording software",
     reason: "Creator and business video searches connect well to recording, editing, repurposing, and podcast workflows.",
   },
+  {
+    rank: 13,
+    name: "1Password",
+    niche: "Password & security",
+    pageAngle: "Best password managers for teams",
+    reason: "Security software searches have strong commercial intent and clear business buying criteria.",
+  },
+  {
+    rank: 14,
+    name: "Calendly",
+    niche: "Scheduling & calendar",
+    pageAngle: "Best scheduling apps and Calendly alternatives",
+    reason: "Scheduling tools attract founders, sales teams, recruiters, consultants, and operations buyers.",
+  },
+  {
+    rank: 15,
+    name: "Canva",
+    niche: "Design & creator tools",
+    pageAngle: "Best creator design tools",
+    reason: "Design and creator software brings broad search demand with strong template, brand, and content workflows.",
+  },
+  {
+    rank: 16,
+    name: "Jotform",
+    niche: "Forms & surveys",
+    pageAngle: "Best form builders and Typeform alternatives",
+    reason: "Forms, surveys, intake, and lead capture searches connect directly to business workflows.",
+  },
 ];
 
 export const guides = [
@@ -1215,6 +1588,16 @@ export const guides = [
     detail: "Zendesk, Intercom, Help Scout, Freshdesk, Crisp, and Tidio compared.",
     read: "10 min read",
   },
+  {
+    title: "Best password managers for teams",
+    detail: "1Password, NordPass, Dashlane, Keeper, Bitwarden, and Proton Pass compared.",
+    read: "9 min read",
+  },
+  {
+    title: "Best form builders for lead capture",
+    detail: "Jotform, Tally, Fillout, Paperform, Formstack, and Feathery compared.",
+    read: "8 min read",
+  },
 ];
 
 export const quizOptions = [
@@ -1238,7 +1621,12 @@ export function comparisonFocus(tool: Software) {
   if (tool.niche === "AI meeting notes") return "Transcription quality, summaries, action items, CRM sync, privacy";
   if (tool.niche === "Video & podcast tools") return "Recording quality, editing speed, captions, clips, collaboration, export";
   if (tool.niche === "Customer support software") return "Ticketing, AI support, live chat, knowledge base, routing, analytics";
-  return "Proposal builder, e-signatures, templates, approvals, payments, analytics";
+  if (tool.niche === "Proposal & e-signature") return "Proposal builder, e-signatures, templates, approvals, payments, analytics";
+  if (tool.niche === "Forms & surveys") return "Form design, logic, payments, integrations, analytics, conversion";
+  if (tool.niche === "Docs & knowledge base") return "Docs, wiki structure, AI search, permissions, verification, integrations";
+  if (tool.niche === "Scheduling & calendar") return "Booking flow, availability, routing, reminders, calendar sync, focus time";
+  if (tool.niche === "Design & creator tools") return "Templates, brand assets, collaboration, exports, AI features, content workflows";
+  return "Vault security, sharing, passkeys, admin controls, audits, business policies";
 }
 
 export function toolUrl(tool: Pick<Software, "name">) {

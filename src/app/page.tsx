@@ -98,7 +98,7 @@ export default function Home() {
           <h1>Find tools worth recommending.</h1>
           <p>
             Compare AI tools, SaaS platforms, pricing, features, review scores,
-            use cases, and buying considerations across 15 high-intent software
+            use cases, and buying considerations across 20 high-intent software
             categories.
           </p>
           <div className={styles.heroActions}>
@@ -154,7 +154,7 @@ export default function Home() {
               <strong>{software.length} tools</strong>
             </div>
             <div className={styles.panelRows}>
-              <span>15 software categories</span>
+              <span>20 software categories</span>
               <span>Features + pricing angles</span>
               <span>G2-style score cards</span>
             </div>
@@ -165,7 +165,7 @@ export default function Home() {
       <section className={styles.productBand} id="reviews">
         <div className={styles.sectionTop}>
           <div>
-            <h2>15-category software directory</h2>
+            <h2>20-category software directory</h2>
             <p>
               Filter the software directory by category, then compare review
               scores, use cases, pricing angles, key features, and what matters
