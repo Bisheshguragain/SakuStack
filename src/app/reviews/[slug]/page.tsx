@@ -13,6 +13,7 @@ import {
   Users,
 } from "lucide-react";
 
+import ToolLogo from "../../components/ToolLogo";
 import {
   breadcrumbStructuredData,
   categoryHref,
@@ -34,7 +35,6 @@ import {
   softwareFromSlug,
   softwareHref,
   softwareSlug,
-  toolInitials,
   toolUrl,
   uniqueSoftware,
 } from "../../software-data";
@@ -304,7 +304,7 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
         <article className={styles.reviewArticle}>
           <section className={styles.toolVisualPanel} aria-label={`${tool.name} review snapshot`}>
             <div className={styles.toolVisualMockup}>
-              <span>{toolInitials(tool)}</span>
+              <ToolLogo tool={tool} className={styles.visualHeroLogo} />
               <div>
                 <strong>{tool.name}</strong>
                 <small>{tool.niche}</small>

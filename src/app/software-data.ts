@@ -1801,6 +1801,21 @@ export function toolLogoHue(tool: Pick<Software, "name">) {
   return total % 360;
 }
 
+export function toolLogoSrc(tool: Pick<Software, "name">) {
+  const url = toolUrl(tool);
+
+  if (!url || url === "#") {
+    return "";
+  }
+
+  try {
+    const hostname = new URL(url).hostname.replace(/^www\./, "");
+    return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(hostname)}&sz=128`;
+  } catch {
+    return "";
+  }
+}
+
 export function pricingChecklist(tool: Software) {
   return [
     `Confirm what ${tool.pricing.toLowerCase()} includes today.`,

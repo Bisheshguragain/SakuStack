@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { Filter, Search, Star } from "lucide-react";
-import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
 
+import ToolLogo from "../components/ToolLogo";
 import {
   categoryHref,
   categoryNiches,
@@ -12,18 +12,11 @@ import {
   comparisonFocus,
   software,
   softwareHref,
-  toolInitials,
-  toolLogoHue,
   type CategoryNiche,
 } from "../software-data";
 import styles from "../page.module.css";
 
 type DirectoryFilter = "All" | CategoryNiche;
-type LogoStyle = CSSProperties & { "--logo-hue": number };
-
-function logoStyle(tool: { name: string }) {
-  return { "--logo-hue": toolLogoHue(tool) } as LogoStyle;
-}
 
 export default function ToolsDirectoryClient() {
   const [query, setQuery] = useState("");
@@ -90,9 +83,7 @@ export default function ToolsDirectoryClient() {
               key={`${tool.niche}-${tool.name}`}
             >
               <div className={styles.directoryToolHead}>
-                <span className={styles.toolLogo} style={logoStyle(tool)} aria-hidden="true">
-                  {toolInitials(tool)}
-                </span>
+                <ToolLogo tool={tool} />
                 <div>
                   <Link href={softwareHref(tool)}>{tool.name}</Link>
                   <span>{tool.niche}</span>

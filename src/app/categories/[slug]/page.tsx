@@ -8,6 +8,7 @@ import {
   blogHref,
   knowledgeCategoryHref,
 } from "../../knowledge-data";
+import ToolLogo from "../../components/ToolLogo";
 import {
   breadcrumbStructuredData,
   categoryFromSlug,
@@ -26,7 +27,6 @@ import {
   siteUrl,
   software,
   softwareHref,
-  toolInitials,
   toolUrl,
   type CategoryNiche,
 } from "../../software-data";
@@ -241,7 +241,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <div className={styles.toolLogoGrid}>
               {tools.slice(0, 6).map((tool) => (
                 <Link href={softwareHref(tool)} key={`${tool.name}-visual`}>
-                  <span>{toolInitials(tool)}</span>
+                  <ToolLogo tool={tool} />
                   <strong>{tool.name}</strong>
                   <small>{tool.rating}/5 editorial</small>
                 </Link>
@@ -264,6 +264,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             {tools.map((tool) => (
               <article className={styles.toolCard} key={`${tool.niche}-${tool.name}`}>
                 <div className={styles.cardHead}>
+                  <ToolLogo tool={tool} />
                   <div>
                     <p>{tool.niche}</p>
                     <h3>

@@ -17,9 +17,9 @@ import {
   Star,
   Trophy,
 } from "lucide-react";
-import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
 
+import ToolLogo from "./components/ToolLogo";
 import styles from "./page.module.css";
 
 import {
@@ -33,8 +33,6 @@ import {
   software,
   softwareHref,
   structuredData,
-  toolInitials,
-  toolLogoHue,
   toolUrl,
   trendingTools,
   useCaseGroups,
@@ -42,12 +40,6 @@ import {
   type Niche,
 } from "./software-data";
 import { knowledgePillars } from "./knowledge-data";
-
-type LogoStyle = CSSProperties & { "--logo-hue": number };
-
-function logoStyle(tool: { name: string }) {
-  return { "--logo-hue": toolLogoHue(tool) } as LogoStyle;
-}
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Niche>("All");
@@ -197,13 +189,7 @@ export default function Home() {
         <div className={styles.trendingGrid}>
           {trendingTools.map((tool) => (
             <Link className={styles.trendingCard} href={softwareHref(tool)} key={tool.name}>
-              <span
-                className={styles.toolLogo}
-                style={logoStyle(tool)}
-                aria-hidden="true"
-              >
-                {toolInitials(tool)}
-              </span>
+              <ToolLogo tool={tool} />
               <div>
                 <strong>{tool.name}</strong>
                 <small>{tool.niche}</small>
@@ -299,13 +285,7 @@ export default function Home() {
               key={`${tool.niche}-${tool.name}`}
             >
               <div className={styles.cardHead}>
-                <span
-                  className={styles.toolLogo}
-                  style={logoStyle(tool)}
-                  aria-hidden="true"
-                >
-                  {toolInitials(tool)}
-                </span>
+                <ToolLogo tool={tool} />
                 <div>
                   <p>{tool.niche}</p>
                   <h3>
