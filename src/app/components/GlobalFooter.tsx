@@ -52,6 +52,9 @@ export default function GlobalFooter() {
           links. Rankings and reviews are editorial and should be verified
           against current vendor pricing, plans, and terms before purchase.
         </p>
+        <p>
+          Contact: <a href="mailto:hello@sakustack.com">hello@sakustack.com</a>
+        </p>
       </div>
 
       <nav className={styles.globalFooterGrid} aria-label="Footer navigation">
