@@ -9,7 +9,12 @@ export type Niche =
   | "Hosting"
   | "Ecommerce"
   | "Courses / funnels"
-  | "Mini SaaS / productivity";
+  | "Mini SaaS / productivity"
+  | "Team productivity platforms"
+  | "AI meeting notes"
+  | "Video & podcast tools"
+  | "Customer support software"
+  | "Proposal & e-signature";
 
 export type CategoryNiche = Exclude<Niche, "All">;
 
@@ -47,6 +52,11 @@ export const niches: Niche[] = [
   "Ecommerce",
   "Courses / funnels",
   "Mini SaaS / productivity",
+  "Team productivity platforms",
+  "AI meeting notes",
+  "Video & podcast tools",
+  "Customer support software",
+  "Proposal & e-signature",
 ];
 
 export const categoryNiches = niches.filter(
@@ -240,6 +250,41 @@ export const categorySummaries: Record<
     searchIntent: "Targets searches around Notion alternatives, Airtable vs Notion, Zapier alternatives, Typeform competitors, and no-code mini SaaS stacks.",
     comparisonIdeas: ["Notion vs Airtable", "Make vs Zapier", "Typeform vs Softr"],
   },
+  "Team productivity platforms": {
+    title: "Best Team Productivity Platforms",
+    description:
+      "Compare work management platforms for tasks, projects, dashboards, automations, resource planning, collaboration, reporting, and team operating systems.",
+    searchIntent: "Targets searches like best project management software, ClickUp alternatives, monday.com vs Asana, and team productivity platforms.",
+    comparisonIdeas: ["ClickUp vs monday.com", "Asana vs ClickUp", "Wrike vs Smartsheet"],
+  },
+  "AI meeting notes": {
+    title: "Best AI Meeting Note Takers",
+    description:
+      "Compare AI meeting assistants for transcription, summaries, action items, searchable calls, CRM sync, meeting intelligence, and team knowledge capture.",
+    searchIntent: "Targets searches like best AI note taker, Fireflies vs Otter, Fathom alternatives, and AI meeting summary software.",
+    comparisonIdeas: ["Fireflies.ai vs Otter.ai", "Fathom vs Fireflies.ai", "tl;dv vs Avoma"],
+  },
+  "Video & podcast tools": {
+    title: "Best Video and Podcast Tools",
+    description:
+      "Compare recording and editing tools for podcasts, webinars, tutorials, screen recordings, AI clips, captions, repurposing, and creator workflows.",
+    searchIntent: "Targets searches like best podcast recording software, Descript alternatives, Riverside vs Loom, and video editing tools for creators.",
+    comparisonIdeas: ["Riverside vs Descript", "Loom vs VEED", "Screen Studio vs Camtasia"],
+  },
+  "Customer support software": {
+    title: "Best Customer Support Software",
+    description:
+      "Compare helpdesk and customer messaging platforms for tickets, live chat, AI support, knowledge bases, routing, analytics, and support team workflows.",
+    searchIntent: "Targets high-intent searches like best helpdesk software, Zendesk alternatives, Intercom vs Help Scout, and customer support tools.",
+    comparisonIdeas: ["Zendesk vs Intercom", "Help Scout vs Freshdesk", "Crisp vs Tidio"],
+  },
+  "Proposal & e-signature": {
+    title: "Best Proposal and E-Signature Tools",
+    description:
+      "Compare proposal, document automation, quote, contract, approval, and e-signature tools for sales teams, agencies, consultants, and service businesses.",
+    searchIntent: "Targets buyer searches like best proposal software, PandaDoc alternatives, DocuSign vs Dropbox Sign, and e-signature tools.",
+    comparisonIdeas: ["PandaDoc vs DocuSign", "Dropbox Sign vs DocuSign", "Better Proposals vs Proposify"],
+  },
 };
 
 export const toolUrls: Record<string, string> = {
@@ -251,14 +296,26 @@ export const toolUrls: Record<string, string> = {
   "BigCommerce": "https://www.bigcommerce.com/",
   "Bluehost": "https://www.bluehost.com/",
   "Bolt.new": "https://bolt.new/",
+  "Asana": "https://asana.com/",
+  "Avoma": "https://www.avoma.com/",
+  "Better Proposals": "https://betterproposals.io/",
+  "Camtasia": "https://www.techsmith.com/camtasia/",
   "ChatGPT": "https://chatgpt.com/",
   "Claude": "https://claude.ai/",
   "Claude Code": "https://www.anthropic.com/claude-code",
   "ClickFunnels": "https://www.clickfunnels.com/",
+  "ClickUp": "https://clickup.com/",
   "Cloudways": "https://www.cloudways.com/",
   "Codeium / Windsurf": "https://windsurf.com/",
+  "Crisp": "https://crisp.chat/",
   "Cursor": "https://cursor.com/",
+  "Descript": "https://www.descript.com/",
+  "DocuSign": "https://www.docusign.com/",
+  "Dropbox Sign": "https://sign.dropbox.com/",
+  "Fathom": "https://fathom.video/",
+  "Fireflies.ai": "https://fireflies.ai/",
   "Frase": "https://www.frase.io/",
+  "Freshdesk": "https://www.freshworks.com/freshdesk/",
   "Freshsales": "https://www.freshworks.com/crm/sales/",
   "Gemini": "https://gemini.google.com/",
   "GetResponse": "https://www.getresponse.com/",
@@ -267,32 +324,49 @@ export const toolUrls: Record<string, string> = {
   "Hostinger": "https://www.hostinger.com/",
   "Hostinger Horizons": "https://www.hostinger.com/horizons",
   "HubSpot": "https://www.hubspot.com/",
+  "Help Scout": "https://www.helpscout.com/",
+  "Intercom": "https://www.intercom.com/",
   "Kajabi": "https://kajabi.com/",
   "Kinsta": "https://kinsta.com/",
   "Kit / ConvertKit": "https://kit.com/",
   "Lovable": "https://lovable.dev/",
+  "Loom": "https://www.loom.com/",
   "MailerLite": "https://www.mailerlite.com/",
   "Make": "https://www.make.com/",
+  "monday.com": "https://monday.com/",
   "Notion": "https://www.notion.com/",
+  "Otter.ai": "https://otter.ai/",
+  "PandaDoc": "https://www.pandadoc.com/",
   "Perplexity": "https://www.perplexity.ai/",
   "Pipedrive": "https://www.pipedrive.com/",
   "Podia": "https://www.podia.com/",
   "Poe": "https://poe.com/",
+  "Proposify": "https://www.proposify.com/",
+  "Qwilr": "https://qwilr.com/",
   "Replit": "https://replit.com/",
+  "Riverside": "https://riverside.fm/",
+  "Screen Studio": "https://www.screen.studio/",
   "SE Ranking": "https://seranking.com/",
+  "Sembly": "https://www.sembly.ai/",
   "Sellfy": "https://sellfy.com/",
   "Semrush": "https://www.semrush.com/",
   "Shopify": "https://www.shopify.com/",
+  "Smartsheet": "https://www.smartsheet.com/",
   "Softr": "https://www.softr.io/",
   "Squarespace": "https://www.squarespace.com/",
   "Surfer": "https://surferseo.com/",
   "Teachable": "https://teachable.com/",
   "Thinkific": "https://www.thinkific.com/",
+  "Tidio": "https://www.tidio.com/",
+  "tl;dv": "https://tldv.io/",
   "Typeform": "https://www.typeform.com/",
+  "VEED": "https://www.veed.io/",
   "Windsurf": "https://windsurf.com/",
   "Wix": "https://www.wix.com/",
   "WP Engine": "https://wpengine.com/",
+  "Wrike": "https://www.wrike.com/",
   "Zapier": "https://zapier.com/",
+  "Zendesk": "https://www.zendesk.com/",
   "Zoho": "https://www.zoho.com/",
 };
 
@@ -765,6 +839,267 @@ export const software: Software[] = [
     bestFor: "Automation glue between SaaS tools",
     features: ["Zaps", "Tables", "Interfaces"],
   },
+  {
+    niche: "Team productivity platforms",
+    name: "ClickUp",
+    rating: 4.7,
+    reviews: "Strong G2/Capterra signal",
+    pricing: "Free; paid plans from about $7/user/mo annually",
+    bestFor: "All-in-one work management, docs, dashboards, and automations",
+    features: ["Tasks", "Docs", "Dashboards"],
+  },
+  {
+    niche: "Team productivity platforms",
+    name: "monday.com",
+    rating: 4.6,
+    reviews: "Strong G2/Capterra signal",
+    pricing: "Free for small teams; paid plans from about $9/seat/mo annually",
+    bestFor: "Visual project boards, team workflows, CRM-style operations, and dashboards",
+    features: ["Boards", "Automations", "Dashboards"],
+  },
+  {
+    niche: "Team productivity platforms",
+    name: "Asana",
+    rating: 4.5,
+    reviews: "Strong G2/Capterra signal",
+    pricing: "Free; Starter from about $10.99/user/mo annually",
+    bestFor: "Task management, project planning, goals, and cross-functional collaboration",
+    features: ["Projects", "Goals", "Workflow builder"],
+  },
+  {
+    niche: "Team productivity platforms",
+    name: "Wrike",
+    rating: 4.4,
+    reviews: "Strong enterprise reviews",
+    pricing: "Free; Team from about $10/user/mo, Business from about $25/user/mo",
+    bestFor: "Agency, marketing, operations, and enterprise project management workflows",
+    features: ["Gantt charts", "Approvals", "Resource planning"],
+  },
+  {
+    niche: "Team productivity platforms",
+    name: "Smartsheet",
+    rating: 4.4,
+    reviews: "Strong enterprise reviews",
+    pricing: "Pro from about $9/member/mo annually; Business from about $19/member/mo",
+    bestFor: "Spreadsheet-style project management, reporting, portfolios, and enterprise workflows",
+    features: ["Grid views", "Reports", "Portfolio tracking"],
+  },
+  {
+    niche: "AI meeting notes",
+    name: "Fireflies.ai",
+    rating: 4.7,
+    reviews: "Strong G2/Capterra signal",
+    pricing: "Free; Pro from about $10/seat/mo annually; Business from about $19/seat/mo",
+    bestFor: "Meeting transcription, summaries, searchable conversations, and CRM sync",
+    features: ["Transcription", "AI summaries", "CRM integrations"],
+  },
+  {
+    niche: "AI meeting notes",
+    name: "Fathom",
+    rating: 4.8,
+    reviews: "Strong user review signal",
+    pricing: "Free individual plan; paid team plans from about $19/user/mo",
+    bestFor: "Fast meeting summaries, action items, call clips, and sales follow-up notes",
+    features: ["Call summaries", "Action items", "CRM sync"],
+  },
+  {
+    niche: "AI meeting notes",
+    name: "Otter.ai",
+    rating: 4.5,
+    reviews: "High awareness reviews",
+    pricing: "Free; Pro from about $8.33/user/mo annually; Business from about $20/user/mo",
+    bestFor: "Meeting notes, live transcription, team sharing, and searchable audio records",
+    features: ["Live transcription", "Meeting chat", "Team vocabulary"],
+  },
+  {
+    niche: "AI meeting notes",
+    name: "tl;dv",
+    rating: 4.6,
+    reviews: "Fast-growing reviews",
+    pricing: "Free; Pro from about $18/user/mo; Business from about $39/user/mo",
+    bestFor: "Recorded meetings, highlights, AI notes, and searchable customer conversations",
+    features: ["Meeting recording", "AI notes", "Highlights"],
+  },
+  {
+    niche: "AI meeting notes",
+    name: "Avoma",
+    rating: 4.6,
+    reviews: "Strong sales team reviews",
+    pricing: "Paid plans commonly start around $19/user/mo",
+    bestFor: "Revenue teams needing meeting intelligence, coaching, notes, and CRM hygiene",
+    features: ["Conversation intelligence", "Coaching", "CRM updates"],
+  },
+  {
+    niche: "AI meeting notes",
+    name: "Sembly",
+    rating: 4.4,
+    reviews: "Growing review signal",
+    pricing: "Free; paid plans commonly start around $10/user/mo",
+    bestFor: "Meeting minutes, task extraction, team notes, and AI-generated summaries",
+    features: ["Meeting minutes", "Tasks", "AI summaries"],
+  },
+  {
+    niche: "Video & podcast tools",
+    name: "Riverside",
+    rating: 4.7,
+    reviews: "Strong creator reviews",
+    pricing: "Free; Standard from about $15/mo annually; Pro from about $24/mo",
+    bestFor: "Remote podcast recording, webinars, interviews, and studio-quality video capture",
+    features: ["Local recording", "AI clips", "Transcripts"],
+  },
+  {
+    niche: "Video & podcast tools",
+    name: "Descript",
+    rating: 4.6,
+    reviews: "Strong creator reviews",
+    pricing: "Free; Hobbyist from about $12/person/mo annually; Creator from about $24/person/mo",
+    bestFor: "Text-based video editing, podcast editing, screen recording, and repurposing",
+    features: ["Text editing", "Overdub", "Clips"],
+  },
+  {
+    niche: "Video & podcast tools",
+    name: "Loom",
+    rating: 4.6,
+    reviews: "High awareness reviews",
+    pricing: "Free; Business from about $15/creator/mo annually",
+    bestFor: "Async video messages, tutorials, team updates, and quick screen recordings",
+    features: ["Screen recording", "Video messages", "Team library"],
+  },
+  {
+    niche: "Video & podcast tools",
+    name: "VEED",
+    rating: 4.5,
+    reviews: "Fast-growing reviews",
+    pricing: "Free; Lite from about $12/user/mo annually; Pro from about $29/user/mo",
+    bestFor: "Browser-based video editing, captions, social clips, and creator content",
+    features: ["Captions", "AI editing", "Social clips"],
+  },
+  {
+    niche: "Video & podcast tools",
+    name: "Screen Studio",
+    rating: 4.6,
+    reviews: "Creator favorite",
+    pricing: "One-time license commonly starts around $89",
+    bestFor: "Polished product demos, app walkthroughs, and Mac screen recordings",
+    features: ["Screen demos", "Auto zoom", "Export presets"],
+  },
+  {
+    niche: "Video & podcast tools",
+    name: "Camtasia",
+    rating: 4.4,
+    reviews: "Long-standing review signal",
+    pricing: "Annual plans commonly start around $179.88/year",
+    bestFor: "Screen recording, tutorial videos, training content, and desktop editing",
+    features: ["Screen recorder", "Templates", "Cursor effects"],
+  },
+  {
+    niche: "Customer support software",
+    name: "Zendesk",
+    rating: 4.5,
+    reviews: "Enterprise known",
+    pricing: "Support plans commonly start around $19/agent/mo annually",
+    bestFor: "Ticketing, help center, omnichannel support, and larger support operations",
+    features: ["Ticketing", "Help center", "AI support"],
+  },
+  {
+    niche: "Customer support software",
+    name: "Intercom",
+    rating: 4.6,
+    reviews: "Strong B2B reviews",
+    pricing: "Plans commonly start around $29/seat/mo plus usage-based AI/support costs",
+    bestFor: "Customer messaging, live chat, AI agents, and product-led support",
+    features: ["Messenger", "AI agent", "Help center"],
+  },
+  {
+    niche: "Customer support software",
+    name: "Help Scout",
+    rating: 4.7,
+    reviews: "Strong SMB reviews",
+    pricing: "Standard from about $25/user/mo; Plus from about $50/user/mo",
+    bestFor: "Simple shared inbox, docs, chat, and customer support for growing teams",
+    features: ["Shared inbox", "Docs", "Beacon chat"],
+  },
+  {
+    niche: "Customer support software",
+    name: "Freshdesk",
+    rating: 4.5,
+    reviews: "Strong helpdesk reviews",
+    pricing: "Free; Growth from about $15/agent/mo annually; Pro from about $49/agent/mo",
+    bestFor: "Ticketing, automation, omnichannel support, and Freshworks ecosystem teams",
+    features: ["Tickets", "Automations", "Omnichannel"],
+  },
+  {
+    niche: "Customer support software",
+    name: "Crisp",
+    rating: 4.4,
+    reviews: "Growing SMB reviews",
+    pricing: "Free; paid workspace plans commonly start around $45/mo",
+    bestFor: "Live chat, shared inbox, chatbot flows, and customer messaging for startups",
+    features: ["Live chat", "Shared inbox", "Chatbots"],
+  },
+  {
+    niche: "Customer support software",
+    name: "Tidio",
+    rating: 4.5,
+    reviews: "Strong SMB reviews",
+    pricing: "Free; paid plans commonly start around $24/mo",
+    bestFor: "Live chat, AI chatbot support, ecommerce support, and lead capture",
+    features: ["Live chat", "AI chatbot", "Ecommerce support"],
+  },
+  {
+    niche: "Proposal & e-signature",
+    name: "PandaDoc",
+    rating: 4.7,
+    reviews: "Strong sales reviews",
+    pricing: "Starter from about $19/user/mo annually; Business from about $49/user/mo",
+    bestFor: "Proposals, quotes, contracts, document automation, and sales approvals",
+    features: ["Proposals", "E-signatures", "CPQ"],
+  },
+  {
+    niche: "Proposal & e-signature",
+    name: "DocuSign",
+    rating: 4.6,
+    reviews: "Enterprise known",
+    pricing: "Personal from about $10/mo; Standard from about $25/user/mo",
+    bestFor: "E-signatures, agreements, approvals, and enterprise contract workflows",
+    features: ["E-signatures", "Templates", "Agreement workflows"],
+  },
+  {
+    niche: "Proposal & e-signature",
+    name: "Dropbox Sign",
+    rating: 4.5,
+    reviews: "Strong e-sign reviews",
+    pricing: "Essentials from about $15/mo; Standard from about $25/user/mo",
+    bestFor: "Simple e-signature workflows, forms, templates, and Dropbox-connected teams",
+    features: ["E-signatures", "Templates", "Audit trail"],
+  },
+  {
+    niche: "Proposal & e-signature",
+    name: "Better Proposals",
+    rating: 4.6,
+    reviews: "Agency-friendly reviews",
+    pricing: "Starter from about $19/user/mo; Premium from about $29/user/mo",
+    bestFor: "Agencies and consultants sending branded proposals and closing pages",
+    features: ["Proposal builder", "Payments", "Templates"],
+  },
+  {
+    niche: "Proposal & e-signature",
+    name: "Proposify",
+    rating: 4.4,
+    reviews: "Sales proposal reviews",
+    pricing: "Basic from about $35/mo; team plans commonly start around $49/user/mo",
+    bestFor: "Sales teams managing proposal content, approvals, and close tracking",
+    features: ["Proposal templates", "Approvals", "Analytics"],
+  },
+  {
+    niche: "Proposal & e-signature",
+    name: "Qwilr",
+    rating: 4.5,
+    reviews: "Modern proposal reviews",
+    pricing: "Business plans commonly start around $35/user/mo",
+    bestFor: "Interactive sales proposals, microsites, quotes, and buyer-facing deal rooms",
+    features: ["Interactive proposals", "Quotes", "Analytics"],
+  },
 ];
 
 export const winners = [
@@ -824,6 +1159,34 @@ export const winners = [
     pageAngle: "Best ecommerce platforms",
     reason: "Huge buyer-intent category with store builder, payments, app ecosystem, and POS.",
   },
+  {
+    rank: 9,
+    name: "ClickUp",
+    niche: "Team productivity platforms",
+    pageAngle: "Best team productivity platforms",
+    reason: "Large productivity category with ClickUp alternatives, monday.com comparisons, and workflow software intent.",
+  },
+  {
+    rank: 10,
+    name: "Intercom",
+    niche: "Customer support software",
+    pageAngle: "Best customer support software",
+    reason: "High-value B2B support category with AI agents, live chat, helpdesk, and support automation searches.",
+  },
+  {
+    rank: 11,
+    name: "PandaDoc",
+    niche: "Proposal & e-signature",
+    pageAngle: "Best proposal and e-signature tools",
+    reason: "Commercial proposal, quote, contract, and e-signature searches often come from buyers close to purchase.",
+  },
+  {
+    rank: 12,
+    name: "Riverside",
+    niche: "Video & podcast tools",
+    pageAngle: "Best podcast recording software",
+    reason: "Creator and business video searches connect well to recording, editing, repurposing, and podcast workflows.",
+  },
 ];
 
 export const guides = [
@@ -841,6 +1204,16 @@ export const guides = [
     title: "Best software stacks for high-intent affiliate SEO",
     detail: "CRM, SEO, hosting, ecommerce, AI, and creator tools organized by search intent.",
     read: "9 min read",
+  },
+  {
+    title: "Best AI meeting note takers",
+    detail: "Fireflies, Fathom, Otter, tl;dv, Avoma, and Sembly compared by workflow.",
+    read: "8 min read",
+  },
+  {
+    title: "Best customer support tools for growing teams",
+    detail: "Zendesk, Intercom, Help Scout, Freshdesk, Crisp, and Tidio compared.",
+    read: "10 min read",
   },
 ];
 
@@ -860,7 +1233,12 @@ export function comparisonFocus(tool: Software) {
   if (tool.niche === "Hosting") return "Speed, uptime, WordPress support, security, backups, migration";
   if (tool.niche === "Ecommerce") return "Store builder, payments, themes, apps, POS, subscriptions";
   if (tool.niche === "Courses / funnels") return "Course builder, checkout, funnels, community, email, analytics";
-  return "Databases, automations, forms, dashboards, integrations, solo-founder workflow";
+  if (tool.niche === "Mini SaaS / productivity") return "Databases, automations, forms, dashboards, integrations, solo-founder workflow";
+  if (tool.niche === "Team productivity platforms") return "Tasks, dashboards, automations, reporting, workload, permissions";
+  if (tool.niche === "AI meeting notes") return "Transcription quality, summaries, action items, CRM sync, privacy";
+  if (tool.niche === "Video & podcast tools") return "Recording quality, editing speed, captions, clips, collaboration, export";
+  if (tool.niche === "Customer support software") return "Ticketing, AI support, live chat, knowledge base, routing, analytics";
+  return "Proposal builder, e-signatures, templates, approvals, payments, analytics";
 }
 
 export function toolUrl(tool: Pick<Software, "name">) {

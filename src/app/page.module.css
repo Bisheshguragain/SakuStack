@@ -509,6 +509,61 @@
   --niche-row: #f8fbf0;
 }
 
+.toolCard[data-niche="Team productivity platforms"],
+.categoryPageLink[data-niche="Team productivity platforms"],
+.tableWrap tr[data-niche="Team productivity platforms"] {
+  --niche-accent: #4f67b3;
+  --niche-bg: #eef3ff;
+  --niche-border: #cbd7f4;
+  --niche-chip: #dce6ff;
+  --niche-text: #314a93;
+  --niche-row: #f6f8ff;
+}
+
+.toolCard[data-niche="AI meeting notes"],
+.categoryPageLink[data-niche="AI meeting notes"],
+.tableWrap tr[data-niche="AI meeting notes"] {
+  --niche-accent: #008c83;
+  --niche-bg: #e8fbf8;
+  --niche-border: #bce8e2;
+  --niche-chip: #d2f4ef;
+  --niche-text: #00645d;
+  --niche-row: #f2fcfa;
+}
+
+.toolCard[data-niche="Video & podcast tools"],
+.categoryPageLink[data-niche="Video & podcast tools"],
+.tableWrap tr[data-niche="Video & podcast tools"] {
+  --niche-accent: #b84d77;
+  --niche-bg: #fff0f5;
+  --niche-border: #edc2d2;
+  --niche-chip: #f8dce7;
+  --niche-text: #85314f;
+  --niche-row: #fff7fa;
+}
+
+.toolCard[data-niche="Customer support software"],
+.categoryPageLink[data-niche="Customer support software"],
+.tableWrap tr[data-niche="Customer support software"] {
+  --niche-accent: #2f7d60;
+  --niche-bg: #edf9f3;
+  --niche-border: #c1e5d3;
+  --niche-chip: #d9f0e4;
+  --niche-text: #1f6449;
+  --niche-row: #f5fbf8;
+}
+
+.toolCard[data-niche="Proposal & e-signature"],
+.categoryPageLink[data-niche="Proposal & e-signature"],
+.tableWrap tr[data-niche="Proposal & e-signature"] {
+  --niche-accent: #91622d;
+  --niche-bg: #fff5e9;
+  --niche-border: #e8cfad;
+  --niche-chip: #f4e2c9;
+  --niche-text: #6d471d;
+  --niche-row: #fff9f1;
+}
+
 .cardHead {
   justify-content: space-between;
   gap: 16px;
