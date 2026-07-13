@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import CookieConsent from "./components/CookieConsent";
 import GlobalFooter from "./components/GlobalFooter";
+import MobileMenu from "./components/MobileMenu";
 import { defaultOgImage, siteName, siteUrl } from "./software-data";
 import "./globals.css";
 
@@ -184,6 +185,7 @@ export default function RootLayout({
           />
         ))}
         {children}
+        <MobileMenu />
         <GlobalFooter />
         <CookieConsent />
       </body>

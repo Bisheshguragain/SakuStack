@@ -83,6 +83,72 @@
   padding: 11px 14px;
 }
 
+.mobileMenu {
+  display: none;
+}
+
+.mobileMenuButton {
+  align-items: center;
+  background: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 14px 36px rgba(17, 19, 15, 0.16);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 850;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 12px;
+}
+
+.mobileMenuPanel {
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(17, 19, 15, 0.2);
+  color: var(--ink);
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+  position: absolute;
+  right: 0;
+  top: 52px;
+  width: min(300px, calc(100vw - 32px));
+  backdrop-filter: blur(18px);
+}
+
+.mobileMenuGrid {
+  display: grid;
+  gap: 8px;
+}
+
+.mobileMenuGrid a,
+.mobileContactLink {
+  align-items: center;
+  border-radius: 7px;
+  display: flex;
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.25;
+  min-height: 42px;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+.mobileMenuGrid a {
+  background: var(--soft);
+  border: 1px solid var(--line);
+}
+
+.mobileContactLink {
+  background: #171b15;
+  color: #ffffff;
+  gap: 8px;
+  justify-content: center;
+}
+
 .hero {
   display: grid;
   gap: clamp(32px, 6vw, 84px);
@@ -2903,6 +2969,22 @@
 
   .nav {
     display: none;
+  }
+
+  .navAction {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: block;
+    position: fixed;
+    right: 16px;
+    top: 14px;
+    z-index: 80;
+  }
+
+  .mobileMenuButton {
+    display: inline-flex;
   }
 
   .hero {
