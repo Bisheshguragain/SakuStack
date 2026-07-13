@@ -93,20 +93,27 @@ export default function ToolsDirectoryClient() {
                   {tool.rating}
                 </strong>
               </div>
-              <p>{tool.bestFor}</p>
-              <dl>
-                <div>
+              <p className={styles.directoryToolUse}>{tool.bestFor}</p>
+              <div className={styles.directoryFeatureStrip} aria-label={`${tool.name} key features`}>
+                {tool.features.slice(0, 3).map((feature) => (
+                  <span key={`${tool.name}-${feature}`}>{feature}</span>
+                ))}
+              </div>
+              <dl className={styles.directoryMetaPanel}>
+                <div className={styles.directoryMetaItem}>
                   <dt>Pricing</dt>
                   <dd>{tool.pricing}</dd>
                 </div>
-                <div>
+                <div className={styles.directoryMetaItem}>
                   <dt>Compare on</dt>
                   <dd>{comparisonFocus(tool)}</dd>
                 </div>
               </dl>
               <div className={styles.directoryActions}>
-                <Link href={softwareHref(tool)}>Read review</Link>
-                <Link href={categoryHref(tool.niche)}>
+                <Link className={styles.directoryPrimaryAction} href={softwareHref(tool)}>
+                  Read review
+                </Link>
+                <Link className={styles.directorySecondaryAction} href={categoryHref(tool.niche)}>
                   {categorySummaries[tool.niche].title}
                 </Link>
               </div>

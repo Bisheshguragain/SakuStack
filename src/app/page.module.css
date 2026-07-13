@@ -564,24 +564,31 @@
 }
 
 .directoryResults {
-  background: var(--soft);
-  padding-top: 46px;
+  background:
+    linear-gradient(180deg, #f8faf4 0%, #ffffff 42%, #f6f8f2 100%);
+  padding-top: 54px;
 }
 
 .directoryGrid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
 }
 
 .directoryToolCard {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.9)),
+    radial-gradient(circle at 18% 0%, rgba(182, 255, 61, 0.18), transparent 34%);
+  box-shadow: 0 18px 48px rgba(25, 29, 23, 0.06);
   display: grid;
-  gap: 18px;
-  padding: 20px;
+  gap: 16px;
+  grid-template-rows: auto auto auto 1fr auto;
+  padding: 22px;
 }
 
 .directoryToolHead {
-  align-items: center;
+  align-items: start;
   display: grid;
-  gap: 13px;
+  gap: 14px;
   grid-template-columns: auto minmax(0, 1fr) auto;
 }
 
@@ -596,7 +603,13 @@
   padding: 7px 9px;
 }
 
-.directoryToolCard p,
+.directoryToolHead a:hover {
+  color: var(--green-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.directoryToolUse,
 .dealToolGrid p {
   color: #465040;
   font-size: 15px;
@@ -604,32 +617,58 @@
   margin: 0;
 }
 
-.directoryToolCard dl {
-  border-bottom: 1px solid var(--line);
-  border-top: 1px solid var(--line);
-  display: grid;
-  gap: 12px;
-  margin: 0;
-  padding: 14px 0;
+.directoryFeatureStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.directoryToolCard dt {
+.directoryFeatureStrip span {
+  background: #f3f7ee;
+  border: 1px solid #dbe8d0;
+  border-radius: 999px;
+  color: #465440;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 7px 9px;
+}
+
+.directoryMetaPanel {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.directoryMetaItem {
+  background: #fbfcf8;
+  border: 1px solid #e3eadc;
+  border-radius: 8px;
+  display: grid;
+  gap: 7px;
+  padding: 14px;
+}
+
+.directoryMetaItem dt {
   color: var(--muted);
   font-size: 12px;
   font-weight: 850;
-  margin-bottom: 4px;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
-.directoryToolCard dd {
+.directoryMetaItem dd {
+  color: #2f372b;
   font-size: 14px;
-  font-weight: 800;
-  line-height: 1.35;
+  font-weight: 650;
+  line-height: 1.45;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .directoryActions,
 .dealToolGrid article div {
+  align-self: end;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -637,12 +676,32 @@
 
 .directoryActions a,
 .dealToolGrid article div a {
-  background: var(--soft);
   border: 1px solid var(--line);
   border-radius: 7px;
   font-size: 13px;
   font-weight: 850;
+  line-height: 1.2;
   padding: 9px 11px;
+}
+
+.directoryPrimaryAction {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #ffffff;
+}
+
+.directoryPrimaryAction:hover {
+  background: #2c3327;
+}
+
+.directorySecondaryAction {
+  background: var(--soft);
+  color: #354030;
+}
+
+.directorySecondaryAction:hover {
+  border-color: #8ad81d;
+  color: var(--green-dark);
 }
 
 .dealsLayout {
