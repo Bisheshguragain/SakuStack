@@ -19,7 +19,8 @@ export type Niche =
   | "Docs & knowledge base"
   | "Scheduling & calendar"
   | "Design & creator tools"
-  | "Password & security";
+  | "Password & security"
+  | "Social media scheduling";
 
 export type CategoryNiche = Exclude<Niche, "All">;
 
@@ -73,6 +74,7 @@ export const niches: Niche[] = [
   "Scheduling & calendar",
   "Design & creator tools",
   "Password & security",
+  "Social media scheduling",
 ];
 
 export const categoryNiches = niches.filter(
@@ -336,6 +338,13 @@ export const categorySummaries: Record<
     searchIntent: "Targets searches like best password manager for teams, 1Password alternatives, NordPass vs Dashlane, and business password security.",
     comparisonIdeas: ["1Password vs NordPass", "Dashlane vs Keeper", "Bitwarden vs Proton Pass"],
   },
+  "Social media scheduling": {
+    title: "Best Social Media Scheduling Tools",
+    description:
+      "Compare social media scheduling and management tools for publishing calendars, analytics, inbox management, approvals, AI captions, and agency workflows.",
+    searchIntent: "Targets searches like best social media scheduler, Buffer alternatives, Hootsuite vs Sprout Social, and social media management tools.",
+    comparisonIdeas: ["Buffer vs Hootsuite", "Social Champ vs Buffer", "Zoho Social vs Sprout Social"],
+  },
 };
 
 export const toolUrls: Record<string, string> = {
@@ -344,6 +353,7 @@ export const toolUrls: Record<string, string> = {
   "1Password": "https://1password.com/",
   "Airtable": "https://www.airtable.com/",
   "Adobe Express": "https://www.adobe.com/express/",
+  "Agorapulse": "https://www.agorapulse.com/",
   "Akiflow": "https://akiflow.com/",
   "AWeber": "https://www.aweber.com/",
   "Base44": "https://base44.com/",
@@ -351,6 +361,7 @@ export const toolUrls: Record<string, string> = {
   "Bitwarden": "https://bitwarden.com/",
   "Bluehost": "https://www.bluehost.com/",
   "Bolt.new": "https://bolt.new/",
+  "Buffer": "https://buffer.com/",
   "Asana": "https://asana.com/",
   "Avoma": "https://www.avoma.com/",
   "Better Proposals": "https://betterproposals.io/",
@@ -390,6 +401,7 @@ export const toolUrls: Record<string, string> = {
   "Guru": "https://www.getguru.com/",
   "Hostinger": "https://www.hostinger.com/",
   "Hostinger Horizons": "https://www.hostinger.com/horizons",
+  "Hootsuite": "https://www.hootsuite.com/",
   "HubSpot": "https://www.hubspot.com/",
   "Help Scout": "https://www.helpscout.com/",
   "Intercom": "https://www.intercom.com/",
@@ -398,6 +410,7 @@ export const toolUrls: Record<string, string> = {
   "Kinsta": "https://kinsta.com/",
   "Keeper": "https://www.keepersecurity.com/",
   "Kit / ConvertKit": "https://kit.com/",
+  "Later": "https://later.com/",
   "Lovable": "https://lovable.dev/",
   "Loom": "https://www.loom.com/",
   "MailerLite": "https://www.mailerlite.com/",
@@ -424,15 +437,19 @@ export const toolUrls: Record<string, string> = {
   "Screen Studio": "https://www.screen.studio/",
   "SE Ranking": "https://seranking.com/",
   "Sembly": "https://www.sembly.ai/",
+  "Sendible": "https://www.sendible.com/",
   "SavvyCal": "https://savvycal.com/",
   "Sellfy": "https://sellfy.com/",
   "Semrush": "https://www.semrush.com/",
   "Shopify": "https://www.shopify.com/",
+  "Social Champ": "https://www.socialchamp.com/",
+  "SocialPilot": "https://www.socialpilot.co/",
   "Smartsheet": "https://www.smartsheet.com/",
   "Softr": "https://www.softr.io/",
   "Slab": "https://slab.com/",
   "Slite": "https://slite.com/",
   "Squarespace": "https://www.squarespace.com/",
+  "Sprout Social": "https://sproutsocial.com/",
   "Surfer": "https://surferseo.com/",
   "Teachable": "https://teachable.com/",
   "Thinkific": "https://www.thinkific.com/",
@@ -449,6 +466,7 @@ export const toolUrls: Record<string, string> = {
   "Zapier": "https://zapier.com/",
   "Zendesk": "https://www.zendesk.com/",
   "Zoho": "https://www.zoho.com/",
+  "Zoho Social": "https://www.zoho.com/social/",
 };
 
 export const software: Software[] = [
@@ -1451,6 +1469,87 @@ export const software: Software[] = [
     bestFor: "Privacy-focused password management, aliases, secure sharing, and Proton users",
     features: ["Password vault", "Email aliases", "Passkeys"],
   },
+  {
+    niche: "Social media scheduling",
+    name: "Social Champ",
+    rating: 4.6,
+    reviews: "Agency-friendly reviews",
+    pricing: "Free; paid plans commonly start around $29/mo",
+    bestFor: "Social scheduling, content calendars, approvals, analytics, and agency workflows",
+    features: ["Scheduling", "Approvals", "Analytics"],
+  },
+  {
+    niche: "Social media scheduling",
+    name: "Buffer",
+    rating: 4.5,
+    reviews: "High awareness reviews",
+    pricing: "Free; Essentials commonly starts around $5/channel/mo annually",
+    bestFor: "Simple social scheduling, publishing queues, small teams, and creator calendars",
+    features: ["Publishing queue", "Analytics", "Engagement"],
+  },
+  {
+    niche: "Social media scheduling",
+    name: "Hootsuite",
+    rating: 4.4,
+    reviews: "Enterprise known",
+    pricing: "Professional commonly starts around $99/mo annually",
+    bestFor: "Multi-network social management, monitoring, reporting, teams, and larger brands",
+    features: ["Scheduling", "Streams", "Reporting"],
+  },
+  {
+    niche: "Social media scheduling",
+    name: "Zoho Social",
+    rating: 4.5,
+    reviews: "Strong SMB reviews",
+    pricing: "Standard commonly starts around $10/mo annually; agency plans available",
+    bestFor: "Affordable social scheduling, brand monitoring, CRM-connected teams, and agencies",
+    features: ["Publishing", "Monitoring", "CRM sync"],
+  },
+  {
+    niche: "Social media scheduling",
+    name: "Later",
+    rating: 4.4,
+    reviews: "Creator and ecommerce reviews",
+    pricing: "Starter commonly starts around $16.67/mo annually",
+    bestFor: "Visual social planning, Instagram/TikTok workflows, link-in-bio, and creator content",
+    features: ["Visual calendar", "Link in bio", "Analytics"],
+  },
+  {
+    niche: "Social media scheduling",
+    name: "Sprout Social",
+    rating: 4.6,
+    reviews: "Strong mid-market reviews",
+    pricing: "Standard commonly starts around $199/seat/mo",
+    bestFor: "Premium social management, analytics, inbox workflows, listening, and support teams",
+    features: ["Smart inbox", "Analytics", "Social listening"],
+  },
+  {
+    niche: "Social media scheduling",
+    name: "Agorapulse",
+    rating: 4.5,
+    reviews: "Agency and SMB reviews",
+    pricing: "Standard commonly starts around $49/user/mo annually",
+    bestFor: "Social inbox, scheduling, reporting, team collaboration, and agency client management",
+    features: ["Social inbox", "Publishing", "Reports"],
+  },
+  {
+    niche: "Social media scheduling",
+    name: "Sendible",
+    rating: 4.4,
+    reviews: "Agency-focused reviews",
+    pricing: "Creator commonly starts around $29/mo; agency plans available",
+    bestFor: "Agency scheduling, client dashboards, content approvals, and social reporting",
+    features: ["Client dashboards", "Approvals", "Reporting"],
+  },
+  {
+    niche: "Social media scheduling",
+    name: "SocialPilot",
+    rating: 4.5,
+    reviews: "Value-focused agency reviews",
+    pricing: "Professional commonly starts around $25.50/mo annually",
+    bestFor: "Cost-conscious agencies, bulk scheduling, client approvals, and multi-brand calendars",
+    features: ["Bulk scheduling", "Client approvals", "Analytics"],
+  },
 ];
 
 export const winners = [
@@ -1566,6 +1665,13 @@ export const winners = [
     pageAngle: "Best form builders and Typeform alternatives",
     reason: "Forms, surveys, intake, and lead capture searches connect directly to business workflows.",
   },
+  {
+    rank: 17,
+    name: "Buffer",
+    niche: "Social media scheduling",
+    pageAngle: "Best social media scheduling tools",
+    reason: "Social scheduling searches attract creators, small businesses, agencies, ecommerce brands, and marketing teams.",
+  },
 ];
 
 export const guides = [
@@ -1604,6 +1710,11 @@ export const guides = [
     detail: "Jotform, Tally, Fillout, Paperform, Formstack, and Feathery compared.",
     read: "8 min read",
   },
+  {
+    title: "Best social media schedulers for agencies",
+    detail: "Social Champ, Buffer, Hootsuite, Zoho Social, Later, Sprout Social, and more compared.",
+    read: "9 min read",
+  },
 ];
 
 export const quizOptions = [
@@ -1632,7 +1743,8 @@ export function comparisonFocus(tool: Software) {
   if (tool.niche === "Docs & knowledge base") return "Docs, wiki structure, AI search, permissions, verification, integrations";
   if (tool.niche === "Scheduling & calendar") return "Booking flow, availability, routing, reminders, calendar sync, focus time";
   if (tool.niche === "Design & creator tools") return "Templates, brand assets, collaboration, exports, AI features, content workflows";
-  return "Vault security, sharing, passkeys, admin controls, audits, business policies";
+  if (tool.niche === "Password & security") return "Vault security, sharing, passkeys, admin controls, audits, business policies";
+  return "Publishing calendar, social inbox, approvals, analytics, AI captions, team workflows";
 }
 
 export function toolUrl(tool: Pick<Software, "name">) {

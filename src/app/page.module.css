@@ -619,6 +619,17 @@
   --niche-row: #f5faf9;
 }
 
+.toolCard[data-niche="Social media scheduling"],
+.categoryPageLink[data-niche="Social media scheduling"],
+.tableWrap tr[data-niche="Social media scheduling"] {
+  --niche-accent: #1f8a9e;
+  --niche-bg: #eaf8fb;
+  --niche-border: #bfe2ea;
+  --niche-chip: #d7eff4;
+  --niche-text: #17687a;
+  --niche-row: #f4fbfd;
+}
+
 .cardHead {
   justify-content: space-between;
   gap: 16px;
