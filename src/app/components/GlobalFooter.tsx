@@ -18,6 +18,8 @@ import {
 import styles from "../page.module.css";
 
 const legalLinks = [
+  { href: "/about", label: "About SakuStack" },
+  { href: "/editorial-policy", label: "Editorial policy" },
   { href: "/affiliate-disclosure", label: "Affiliate disclosure" },
   { href: "/monetization-policy", label: "Monetization policy" },
   { href: "/methodology", label: "Methodology" },

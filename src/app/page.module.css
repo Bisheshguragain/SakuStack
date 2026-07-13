@@ -1348,12 +1348,76 @@
 }
 
 .verdictCard,
+.toolVisualPanel,
 .proConGrid section,
 .reviewSection {
   background: #ffffff;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 24px;
+}
+
+.toolVisualPanel {
+  align-items: center;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
+}
+
+.toolVisualMockup {
+  background: linear-gradient(135deg, #161b13, #314327);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  color: #ffffff;
+  display: grid;
+  gap: 16px;
+  min-height: 260px;
+  padding: 22px;
+}
+
+.toolVisualMockup > span {
+  align-items: center;
+  background: #b6ff3d;
+  border-radius: 8px;
+  color: #14200d;
+  display: inline-flex;
+  font-size: 28px;
+  font-weight: 950;
+  height: 70px;
+  justify-content: center;
+  width: 70px;
+}
+
+.toolVisualMockup strong {
+  display: block;
+  font-size: 28px;
+  line-height: 1.05;
+}
+
+.toolVisualMockup small {
+  color: #dbe6d3;
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.toolVisualMockup ul {
+  display: grid;
+  gap: 8px;
+  margin: auto 0 0;
+  padding: 0;
+}
+
+.toolVisualMockup li {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  color: #f5f8f1;
+  font-size: 14px;
+  font-weight: 800;
+  list-style: none;
+  padding: 10px 12px;
 }
 
 .verdictCard {
@@ -1407,8 +1471,21 @@
 
 .scoreCard p,
 .fitGrid p,
-.featureBreakdown p {
+.featureBreakdown p,
+.methodologyNote {
   margin: 0;
+}
+
+.methodologyNote {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green);
+  border-radius: 8px;
+  color: #475142 !important;
+  font-size: 15px !important;
+  font-weight: 750;
+  line-height: 1.55 !important;
+  padding: 14px 16px;
 }
 
 .fitGrid svg,
@@ -1599,6 +1676,106 @@
 
 .categoryMain {
   min-width: 0;
+}
+
+.categoryVisualBand {
+  align-items: start;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
+  margin-bottom: 34px;
+  padding: 24px;
+}
+
+.categoryVisualBand h2 {
+  font-size: 30px;
+  line-height: 1.05;
+  margin: 14px 0 12px;
+}
+
+.categoryVisualBand p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.toolLogoGrid,
+.ratingMethodGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.toolLogoGrid a,
+.ratingMethodGrid div {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.toolLogoGrid a {
+  color: var(--ink);
+  display: grid;
+  gap: 8px;
+  min-height: 136px;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.toolLogoGrid a:hover {
+  border-color: #8ad81d;
+  box-shadow: 0 14px 32px rgba(25, 29, 23, 0.08);
+  transform: translateY(-1px);
+}
+
+.toolLogoGrid span {
+  align-items: center;
+  background: var(--ink);
+  border-radius: 8px;
+  color: #b6ff3d;
+  display: inline-flex;
+  font-size: 18px;
+  font-weight: 950;
+  height: 44px;
+  justify-content: center;
+  width: 44px;
+}
+
+.toolLogoGrid strong {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.toolLogoGrid small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.ratingMethodGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ratingMethodGrid div {
+  padding: 18px;
+}
+
+.ratingMethodGrid strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.ratingMethodGrid p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .categoryAside {
@@ -2068,7 +2245,8 @@
   .winnerGrid,
   .knowledgeGrid,
   .articleGrid,
-  .toolMiniGrid {
+  .toolMiniGrid,
+  .toolLogoGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2144,6 +2322,8 @@
   }
 
   .articleIntroPanel,
+  .categoryVisualBand,
+  .toolVisualPanel,
   .articleCtaBand,
   .cookieBanner {
     align-items: stretch;
@@ -2173,7 +2353,8 @@
   }
 
   .articlePromiseGrid,
-  .checklistGrid {
+  .checklistGrid,
+  .ratingMethodGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2232,7 +2413,9 @@
   .categoryPageGrid,
   .knowledgeGrid,
   .articleGrid,
-  .toolMiniGrid {
+  .toolMiniGrid,
+  .toolLogoGrid,
+  .ratingMethodGrid {
     grid-template-columns: 1fr;
   }
 

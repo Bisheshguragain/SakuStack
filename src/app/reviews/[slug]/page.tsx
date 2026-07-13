@@ -19,7 +19,11 @@ import {
   categorySummaries,
   comparisonFocus,
   defaultOgImage,
+  editorialAuthor,
+  evidenceChecklist,
   lastUpdated,
+  pricingChecklist,
+  ratingMethodologyNote,
   reviewCons,
   reviewPros,
   reviewSeoDescription,
@@ -29,6 +33,7 @@ import {
   softwareFromSlug,
   softwareHref,
   softwareSlug,
+  toolInitials,
   toolUrl,
   uniqueSoftware,
 } from "../../software-data";
@@ -152,6 +157,8 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
   const cons = reviewCons(tool);
   const scores = scoreCards(tool);
   const faqs = reviewFaq(tool);
+  const pricingItems = pricingChecklist(tool);
+  const evidenceItems = evidenceChecklist(tool);
   const alternatives = uniqueSoftware
     .filter((candidate) => candidate.niche === tool.niche && candidate.name !== tool.name)
     .slice(0, 4);
@@ -180,13 +187,17 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
         bestRating: 5,
         worstRating: 1,
       },
+      reviewBody: `${tool.name} is evaluated against use case fit, feature coverage, pricing clarity, comparison value, and public review signals. ${ratingMethodologyNote(tool)}`,
       author: {
-        "@type": "Organization",
-        name: "SakuStack",
+        "@type": "Person",
+        name: editorialAuthor.name,
+        url: `${siteUrl}${editorialAuthor.url}`,
+        jobTitle: editorialAuthor.title,
       },
       publisher: {
         "@type": "Organization",
-        name: "SakuStack",
+        name: siteName,
+        url: siteUrl,
       },
     },
     {
@@ -276,18 +287,44 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
           </div>
           <div>
             <dt>Score</dt>
-            <dd>{tool.rating}/5</dd>
+            <dd>{tool.rating}/5 editorial</dd>
           </div>
         </dl>
         <p className={styles.affiliateNote}>
           Affiliate disclosure: we may earn a commission if you buy through
-          links on this page. Rankings are editorial and based on use case fit,
-          features, pricing, and review signals.
+          links on this page. Scores are editorial shortlist aids based on use
+          case fit, features, pricing clarity, comparison value, and public
+          review signals.
         </p>
       </section>
 
       <section className={styles.reviewLayout}>
         <article className={styles.reviewArticle}>
+          <section className={styles.toolVisualPanel} aria-label={`${tool.name} review snapshot`}>
+            <div className={styles.toolVisualMockup}>
+              <span>{toolInitials(tool)}</span>
+              <div>
+                <strong>{tool.name}</strong>
+                <small>{tool.niche}</small>
+              </div>
+              <ul>
+                {tool.features.map((feature) => (
+                  <li key={`${tool.name}-${feature}`}>{feature}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <span className={styles.articleEyebrow}>Product snapshot</span>
+              <h2>What buyers should visually verify</h2>
+              <p>
+                Before buying {tool.name}, open the vendor site and inspect the
+                current dashboard, plan limits, onboarding flow, integrations,
+                and support options. We use this page as the structured review
+                layer, then point readers to the live product for final checks.
+              </p>
+            </div>
+          </section>
+
           <div className={styles.verdictCard}>
             <div>
               <span className={styles.rating}>
@@ -323,6 +360,13 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
                 </div>
               ))}
             </div>
+            <p className={styles.methodologyNote}>
+              {ratingMethodologyNote(tool)} Read the full{" "}
+              <Link className={styles.tableNameLink} href="/methodology">
+                SakuStack methodology
+              </Link>
+              .
+            </p>
           </section>
 
           <div className={styles.proConGrid}>
@@ -389,6 +433,30 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
           </section>
 
           <section className={styles.reviewSection}>
+            <h2>Pricing checklist</h2>
+            <div className={styles.checklistGrid}>
+              {pricingItems.map((item) => (
+                <div key={item}>
+                  <Check size={17} aria-hidden="true" />
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className={styles.reviewSection}>
+            <h2>Evidence and trust checks</h2>
+            <div className={styles.checklistGrid}>
+              {evidenceItems.map((item) => (
+                <div key={item}>
+                  <BadgeCheck size={17} aria-hidden="true" />
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className={styles.reviewSection}>
             <h2>Best alternatives</h2>
             <div className={styles.categoryLinkList}>
               {alternatives.map((alternative) => (
@@ -432,8 +500,7 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
           <div>
             <h2>Methodology</h2>
             <p>
-              Scores are a directional editorial aid. We review use case fit,
-              product depth, pricing clarity, feature coverage, and buyer intent.
+              {ratingMethodologyNote(tool)}
             </p>
             <Link className={styles.tableNameLink} href="/methodology">
               Read methodology

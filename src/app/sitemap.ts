@@ -15,6 +15,8 @@ import {
 
 const siteUrl = "https://sakustack.com";
 const legalRoutes = [
+  "/about",
+  "/editorial-policy",
   "/affiliate-disclosure",
   "/privacy-policy",
   "/terms",

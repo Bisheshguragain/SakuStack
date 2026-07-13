@@ -27,6 +27,13 @@ export const lastUpdated = "July 2, 2026";
 export const seoYear = "2026";
 export const siteName = "SakuStack";
 export const defaultOgImage = "/sakustack-hero-dashboard.webp";
+export const editorialAuthor = {
+  name: "SakuStack Editorial Team",
+  title: "Software research and buying guide editors",
+  url: "/about",
+  description:
+    "The SakuStack Editorial Team researches software categories, pricing signals, feature depth, buyer fit, and public review patterns to help readers build stronger shortlists.",
+};
 
 export const niches: Niche[] = [
   "All",
@@ -104,8 +111,18 @@ function truncateMetaDescription(description: string) {
   return `${trimmed.slice(0, lastSpace > 120 ? lastSpace : 155).trim()}...`;
 }
 
+function truncateSeoTitle(title: string) {
+  if (title.length <= 60) {
+    return title;
+  }
+
+  const trimmed = title.slice(0, 57);
+  const lastSpace = trimmed.lastIndexOf(" ");
+  return `${trimmed.slice(0, lastSpace > 42 ? lastSpace : 57).trim()}...`;
+}
+
 export function categorySeoTitle(summary: { title: string }) {
-  return `${summary.title} ${seoYear}: Top Tools Compared`;
+  return truncateSeoTitle(`${summary.title} ${seoYear}: Top Tools`);
 }
 
 export function categorySeoDescription(
@@ -120,7 +137,7 @@ export function categorySeoDescription(
 }
 
 export function reviewSeoTitle(tool: Pick<Software, "name">) {
-  return `${tool.name} Review ${seoYear}: Features, Pricing & Alternatives`;
+  return truncateSeoTitle(`${tool.name} Review ${seoYear}: Features & Pricing`);
 }
 
 export function reviewSeoDescription(tool: Software) {
@@ -130,7 +147,7 @@ export function reviewSeoDescription(tool: Software) {
 }
 
 export function compareSeoTitle(comparison: { title: string }) {
-  return `${comparison.title} ${seoYear}: Features, Pricing & Verdict`;
+  return truncateSeoTitle(`${comparison.title} ${seoYear}: Features & Verdict`);
 }
 
 export function compareSeoDescription(comparison: {
@@ -881,6 +898,38 @@ export function reviewCons(tool: Software) {
     "Teams should compare integrations and limits against their current stack.",
     "This SakuStack profile is a starting point, not a replacement for a hands-on trial.",
   ];
+}
+
+export function toolInitials(tool: Pick<Software, "name">) {
+  return tool.name
+    .replace(/\//g, " ")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase())
+    .join("");
+}
+
+export function pricingChecklist(tool: Software) {
+  return [
+    `Confirm what ${tool.pricing.toLowerCase()} includes today.`,
+    "Check seats, usage limits, credits, projects, storage, and support level.",
+    "Compare monthly vs annual pricing before committing.",
+    "Verify cancellation, refund, and upgrade terms on the vendor site.",
+  ];
+}
+
+export function evidenceChecklist(tool: Software) {
+  return [
+    `${tool.features.join(", ")} should match the workflow you need weekly.`,
+    `${comparisonFocus(tool)} are the highest-priority comparison criteria.`,
+    `${tool.reviews} is a directional research signal, not a guarantee.`,
+    "Public ratings and vendor claims should be checked against current pages before purchase.",
+  ];
+}
+
+export function ratingMethodologyNote(tool: Software) {
+  return `${tool.rating}/5 is an editorial shortlist score based on use case fit, feature coverage, pricing clarity, comparison depth, and public review signals. It is not a paid placement or a guarantee of performance.`;
 }
 
 export const comparisonPages = categoryNiches.flatMap((niche) =>

@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 
 import {
+  articleSeoDescription,
+  articleSeoTitle,
   blogHref,
   knowledgeArticleFromSlug,
   knowledgeArticles,
@@ -27,6 +29,7 @@ import {
   categorySummaries,
   comparisonPages,
   defaultOgImage,
+  editorialAuthor,
   lastUpdated,
   siteName,
   siteUrl,
@@ -57,16 +60,19 @@ export async function generateMetadata({
     return {};
   }
 
+  const title = articleSeoTitle(article);
+  const description = articleSeoDescription(article);
+
   return {
-    title: article.title,
-    description: article.description,
+    title,
+    description,
     keywords: [article.primaryKeyword, ...article.secondaryKeywords],
     alternates: {
       canonical: blogHref(article),
     },
     openGraph: {
-      title: `${article.title} | ${siteName}`,
-      description: article.description,
+      title: `${title} | ${siteName}`,
+      description,
       url: blogHref(article),
       siteName,
       type: "article",
@@ -81,8 +87,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${article.title} | ${siteName}`,
-      description: article.description,
+      title: `${title} | ${siteName}`,
+      description,
       images: [defaultOgImage],
     },
   };
@@ -137,12 +143,15 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
       datePublished: lastUpdated,
       dateModified: lastUpdated,
       author: {
-        "@type": "Organization",
-        name: siteName,
+        "@type": "Person",
+        name: editorialAuthor.name,
+        url: `${siteUrl}${editorialAuthor.url}`,
+        jobTitle: editorialAuthor.title,
       },
       publisher: {
         "@type": "Organization",
         name: siteName,
+        url: siteUrl,
       },
       mainEntityOfPage: `${siteUrl}${blogHref(article)}`,
       articleSection: article.niche,

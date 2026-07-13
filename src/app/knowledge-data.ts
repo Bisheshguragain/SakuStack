@@ -37,6 +37,38 @@ export function blogHref(article: Pick<KnowledgeArticle, "slug">) {
   return `/blog/${article.slug}`;
 }
 
+function shortTitle(title: string) {
+  const shortened = title
+    .replace(": 5 Tools to Compare", " Alternatives")
+    .replace("How to Choose ", "Choose ")
+    .replace(" Pricing Guide", " Pricing");
+
+  if (shortened.length <= 46) {
+    return shortened;
+  }
+
+  const trimmed = shortened.slice(0, 46);
+  return trimmed.replace(/\s+\S*$/, "").trim();
+}
+
+function shortDescription(description: string) {
+  if (description.length <= 155) {
+    return description;
+  }
+
+  const trimmed = description.slice(0, 152);
+  const lastSpace = trimmed.lastIndexOf(" ");
+  return `${trimmed.slice(0, lastSpace > 120 ? lastSpace : 152).trim()}...`;
+}
+
+export function articleSeoTitle(article: KnowledgeArticle) {
+  return shortTitle(article.title);
+}
+
+export function articleSeoDescription(article: KnowledgeArticle) {
+  return shortDescription(article.description);
+}
+
 export function topToolsForNiche(niche: CategoryNiche, limit = 5) {
   return software
     .filter((tool) => tool.niche === niche)

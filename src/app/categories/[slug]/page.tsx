@@ -21,10 +21,12 @@ import {
   comparisonPages,
   defaultOgImage,
   lastUpdated,
+  ratingMethodologyNote,
   siteName,
   siteUrl,
   software,
   softwareHref,
+  toolInitials,
   toolUrl,
   type CategoryNiche,
 } from "../../software-data";
@@ -218,13 +220,35 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </div>
         <p className={styles.affiliateNote}>
           Affiliate disclosure: we may earn a commission from links on this
-          page. We keep pricing, feature, and review criteria visible before
-          each outbound click.
+          page. Editorial scores are shortlist aids, not paid placements or
+          guarantees. Confirm screenshots, pricing, limits, and terms on each
+          vendor site before buying.
         </p>
       </section>
 
       <section className={styles.categoryLayout}>
         <div className={styles.categoryMain}>
+          <section className={styles.categoryVisualBand}>
+            <div>
+              <span className={styles.articleEyebrow}>Category snapshot</span>
+              <h2>Quick visual shortlist</h2>
+              <p>
+                Use these product cards to scan the category before opening
+                full reviews. Each card highlights the tool role, core features,
+                and rating method so buyers can compare without guessing.
+              </p>
+            </div>
+            <div className={styles.toolLogoGrid}>
+              {tools.slice(0, 6).map((tool) => (
+                <Link href={softwareHref(tool)} key={`${tool.name}-visual`}>
+                  <span>{toolInitials(tool)}</span>
+                  <strong>{tool.name}</strong>
+                  <small>{tool.rating}/5 editorial</small>
+                </Link>
+              ))}
+            </div>
+          </section>
+
           <div className={styles.sectionTop}>
             <div>
               <h2>Top {niche.toLowerCase()} picks</h2>
@@ -357,6 +381,27 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               </table>
             </div>
           </div>
+
+          <section className={styles.categoryTableBlock}>
+            <div className={styles.sectionTop}>
+              <div>
+                <h2>How to read these ratings</h2>
+                <p>
+                  Ratings summarize editorial research. They are designed to
+                  help readers shortlist tools, then verify details directly
+                  before making a purchase.
+                </p>
+              </div>
+            </div>
+            <div className={styles.ratingMethodGrid}>
+              {tools.slice(0, 4).map((tool) => (
+                <div key={`${tool.name}-method`}>
+                  <strong>{tool.name}</strong>
+                  <p>{ratingMethodologyNote(tool)}</p>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
 
         <aside className={styles.categoryAside}>
