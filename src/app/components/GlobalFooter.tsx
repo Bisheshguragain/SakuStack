@@ -66,7 +66,9 @@ export default function GlobalFooter() {
 
         <div>
           <h2>Knowledge</h2>
+          <Link href="/tools">Tool Directory</Link>
           <Link href="/knowledge-centre">Knowledge Centre</Link>
+          <Link href="/deals">Software Deals</Link>
           {knowledgePillars.slice(0, 4).map((pillar) => (
             <Link href={pillar.href} key={pillar.niche}>
               {pillar.title}

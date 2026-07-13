@@ -17,6 +17,7 @@ import {
   Star,
   Trophy,
 } from "lucide-react";
+import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
 
 import styles from "./page.module.css";
@@ -27,15 +28,26 @@ import {
   categorySummaries,
   comparisonFocus,
   niches,
+  popularComparisons,
   quizOptions,
   software,
   softwareHref,
   structuredData,
+  toolInitials,
+  toolLogoHue,
   toolUrl,
+  trendingTools,
+  useCaseGroups,
   winners,
   type Niche,
 } from "./software-data";
 import { knowledgePillars } from "./knowledge-data";
+
+type LogoStyle = CSSProperties & { "--logo-hue": number };
+
+function logoStyle(tool: { name: string }) {
+  return { "--logo-hue": toolLogoHue(tool) } as LogoStyle;
+}
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Niche>("All");
@@ -83,6 +95,8 @@ export default function Home() {
         </a>
         <nav className={styles.nav} aria-label="Main navigation">
           <a href="#reviews">Categories</a>
+          <Link href="/tools">Tools</Link>
+          <Link href="/deals">Deals</Link>
           <a href="#winners">Top Pages</a>
           <a href="#compare">Matrix</a>
           <Link href="/knowledge-centre">Knowledge</Link>
@@ -110,9 +124,13 @@ export default function Home() {
               <Trophy size={18} aria-hidden="true" />
               Top Review Pages
             </a>
-            <Link className={styles.secondaryButton} href="/knowledge-centre">
+          <Link className={styles.secondaryButton} href="/knowledge-centre">
               <Clock3 size={18} aria-hidden="true" />
               Knowledge Centre
+            </Link>
+            <Link className={styles.secondaryButton} href="/tools">
+              <Search size={18} aria-hidden="true" />
+              Tool Directory
             </Link>
           </div>
           <div className={styles.trustRow} aria-label="Publishing principles">
@@ -159,6 +177,70 @@ export default function Home() {
               <span>G2-style score cards</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.discoveryBand} aria-label="Trending software tools">
+        <div className={styles.sectionTop}>
+          <div>
+            <h2>Trending tools</h2>
+            <p>
+              Fresh software shortlists for AI work, social publishing, sales,
+              creators, operations, commerce, and team productivity.
+            </p>
+          </div>
+          <Link className={styles.textLink} href="/tools">
+            Explore all tools
+            <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+        </div>
+        <div className={styles.trendingGrid}>
+          {trendingTools.map((tool) => (
+            <Link className={styles.trendingCard} href={softwareHref(tool)} key={tool.name}>
+              <span
+                className={styles.toolLogo}
+                style={logoStyle(tool)}
+                aria-hidden="true"
+              >
+                {toolInitials(tool)}
+              </span>
+              <div>
+                <strong>{tool.name}</strong>
+                <small>{tool.niche}</small>
+              </div>
+              <span className={styles.score}>
+                <Star size={14} fill="currentColor" aria-hidden="true" />
+                {tool.rating}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.useCaseBand} aria-label="Browse by use case">
+        <div className={styles.sectionTop}>
+          <div>
+            <h2>Browse by use case</h2>
+            <p>
+              Start with the job you need done, then move into category pages,
+              reviews, comparisons, and pricing checks.
+            </p>
+          </div>
+        </div>
+        <div className={styles.useCaseGrid}>
+          {useCaseGroups.map((group) => (
+            <article className={styles.useCaseCard} key={group.label}>
+              <span>{group.label}</span>
+              <h3>{group.description}</h3>
+              <div>
+                {group.niches.map((niche) => (
+                  <Link href={categoryHref(niche)} key={`${group.label}-${niche}`}>
+                    {categorySummaries[niche].title}
+                  </Link>
+                ))}
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -217,6 +299,13 @@ export default function Home() {
               key={`${tool.niche}-${tool.name}`}
             >
               <div className={styles.cardHead}>
+                <span
+                  className={styles.toolLogo}
+                  style={logoStyle(tool)}
+                  aria-hidden="true"
+                >
+                  {toolInitials(tool)}
+                </span>
                 <div>
                   <p>{tool.niche}</p>
                   <h3>
@@ -268,6 +357,35 @@ export default function Home() {
                 </a>
               </div>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.comparisonSpotlight} aria-label="Popular comparisons">
+        <div className={styles.sectionTop}>
+          <div>
+            <h2>Popular comparisons</h2>
+            <p>
+              Side-by-side pages for high-intent decisions across AI, sales,
+              social media, security, proposals, and creator workflows.
+            </p>
+          </div>
+          <a href="#compare" className={styles.textLink}>
+            View matrix
+            <ArrowRight size={16} aria-hidden="true" />
+          </a>
+        </div>
+        <div className={styles.comparisonGrid}>
+          {popularComparisons.map((comparison) => (
+            <Link
+              className={styles.comparisonCard}
+              href={`/compare/${comparison.slug}`}
+              key={comparison.slug}
+            >
+              <span>{categorySummaries[comparison.niche].title}</span>
+              <strong>{comparison.title}</strong>
+              <small>{comparison.tools.map((tool) => tool.name).join(" vs ")}</small>
+            </Link>
           ))}
         </div>
       </section>
@@ -334,10 +452,10 @@ export default function Home() {
               comparison criteria.
             </p>
           </div>
-          <a href="#deals" className={styles.textLink}>
-            Get updates
+          <Link href="/deals" className={styles.textLink}>
+            View deals
             <ArrowRight size={16} aria-hidden="true" />
-          </a>
+          </Link>
         </div>
         <div className={styles.tableWrap}>
           <table>

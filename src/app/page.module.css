@@ -291,6 +291,386 @@
   border-top: 1px solid var(--line);
 }
 
+.discoveryBand,
+.useCaseBand,
+.comparisonSpotlight,
+.directoryHero,
+.directoryControls,
+.directoryResults,
+.dealsHero,
+.dealsLayout {
+  padding: 76px clamp(20px, 5vw, 72px);
+}
+
+.discoveryBand {
+  background: #ffffff;
+}
+
+.useCaseBand {
+  background:
+    linear-gradient(180deg, #f9fbf5 0%, #ffffff 100%);
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+}
+
+.comparisonSpotlight {
+  background: #ffffff;
+  border-top: 1px solid var(--line);
+}
+
+.trendingGrid,
+.useCaseGrid,
+.comparisonGrid,
+.directoryGrid,
+.dealTypeGrid,
+.dealToolGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.trendingGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.trendingCard,
+.comparisonCard,
+.useCaseCard,
+.directoryToolCard,
+.dealTypeGrid div,
+.dealToolGrid article {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.trendingCard {
+  align-items: center;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  min-height: 92px;
+  padding: 16px;
+}
+
+.trendingCard:hover,
+.comparisonCard:hover,
+.useCaseCard:hover,
+.directoryToolCard:hover,
+.dealToolGrid article:hover {
+  border-color: #8ad81d;
+  box-shadow: 0 16px 38px rgba(25, 29, 23, 0.08);
+  transform: translateY(-1px);
+}
+
+.toolLogo {
+  align-items: center;
+  background:
+    linear-gradient(135deg, hsl(var(--logo-hue, 92) 78% 58%), hsl(calc(var(--logo-hue, 92) + 42) 72% 46%));
+  border: 1px solid rgba(17, 19, 15, 0.12);
+  border-radius: 8px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 14px;
+  font-weight: 950;
+  height: 44px;
+  justify-content: center;
+  letter-spacing: 0;
+  text-shadow: 0 1px 2px rgba(17, 19, 15, 0.22);
+  width: 44px;
+}
+
+.trendingCard strong,
+.directoryToolHead a {
+  display: block;
+  font-size: 17px;
+  line-height: 1.15;
+}
+
+.trendingCard small,
+.comparisonCard span,
+.comparisonCard small,
+.directoryToolHead span,
+.dealToolGrid span {
+  color: var(--muted);
+  display: block;
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.35;
+  margin-top: 5px;
+}
+
+.useCaseGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.useCaseCard {
+  display: grid;
+  gap: 16px;
+  min-height: 230px;
+  padding: 22px;
+}
+
+.useCaseCard > span {
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.useCaseCard h3 {
+  font-size: 25px;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.useCaseCard div {
+  align-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.useCaseCard a {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: #384134;
+  font-size: 12px;
+  font-weight: 850;
+  padding: 8px 10px;
+}
+
+.comparisonGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.comparisonCard {
+  display: grid;
+  gap: 10px;
+  min-height: 156px;
+  padding: 20px;
+}
+
+.comparisonCard strong {
+  font-size: 22px;
+  line-height: 1.08;
+}
+
+.directoryHero,
+.dealsHero {
+  background: var(--soft);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 66px;
+}
+
+.directoryHero h1,
+.dealsHero h1 {
+  font-size: clamp(46px, 6vw, 82px);
+  letter-spacing: 0;
+  line-height: 0.96;
+  margin: 0 0 22px;
+  max-width: 900px;
+}
+
+.directoryHero > p,
+.dealsHero > p {
+  color: #4e564b;
+  font-size: clamp(18px, 2vw, 23px);
+  line-height: 1.45;
+  margin: 0;
+  max-width: 880px;
+}
+
+.directoryControls {
+  background: #ffffff;
+  padding-bottom: 28px;
+}
+
+.directorySearch {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  max-width: 760px;
+  min-height: 58px;
+  padding: 0 16px;
+}
+
+.directorySearch input {
+  border: 0;
+  flex: 1;
+  font-size: 16px;
+  min-width: 0;
+  outline: 0;
+}
+
+.directoryTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.directoryTabs button {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 850;
+  gap: 7px;
+  min-height: 40px;
+  padding: 0 12px;
+}
+
+.directoryTabs .activeTab {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #ffffff;
+}
+
+.directoryResults {
+  background: var(--soft);
+  padding-top: 46px;
+}
+
+.directoryGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.directoryToolCard {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+}
+
+.directoryToolHead {
+  align-items: center;
+  display: grid;
+  gap: 13px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.directoryToolHead strong {
+  align-items: center;
+  background: #fff6d8;
+  border-radius: 6px;
+  color: #8a6200;
+  display: inline-flex;
+  font-size: 14px;
+  gap: 5px;
+  padding: 7px 9px;
+}
+
+.directoryToolCard p,
+.dealToolGrid p {
+  color: #465040;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.directoryToolCard dl {
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 14px 0;
+}
+
+.directoryToolCard dt {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.directoryToolCard dd {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.directoryActions,
+.dealToolGrid article div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.directoryActions a,
+.dealToolGrid article div a {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 850;
+  padding: 9px 11px;
+}
+
+.dealsLayout {
+  background: #ffffff;
+}
+
+.dealsMain {
+  display: grid;
+  gap: 36px;
+}
+
+.dealTypeGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.dealTypeGrid div {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  min-height: 84px;
+  padding: 18px;
+}
+
+.dealTypeGrid svg,
+.dealToolGrid svg {
+  color: var(--green-dark);
+}
+
+.dealToolGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dealToolGrid article {
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+}
+
+.dealToolGrid h3 {
+  font-size: 24px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.dealToolGrid span {
+  align-items: center;
+  display: inline-flex;
+  gap: 7px;
+  margin: 0;
+}
+
 .sectionTop {
   justify-content: space-between;
   gap: 24px;
@@ -2420,7 +2800,12 @@
   .knowledgeGrid,
   .articleGrid,
   .toolMiniGrid,
-  .toolLogoGrid {
+  .toolLogoGrid,
+  .trendingGrid,
+  .comparisonGrid,
+  .directoryGrid,
+  .dealTypeGrid,
+  .dealToolGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2470,7 +2855,8 @@
 
   .guideGrid,
   .winnerGrid,
-  .globalFooterGrid {
+  .globalFooterGrid,
+  .useCaseGrid {
     grid-template-columns: 1fr;
   }
 
@@ -2574,6 +2960,18 @@
     padding-right: 16px;
   }
 
+  .discoveryBand,
+  .useCaseBand,
+  .comparisonSpotlight,
+  .directoryHero,
+  .directoryControls,
+  .directoryResults,
+  .dealsHero,
+  .dealsLayout {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   .heroCopy h1 {
     font-size: clamp(42px, 12vw, 50px);
     line-height: 0.98;
@@ -2590,8 +2988,23 @@
   .articleGrid,
   .toolMiniGrid,
   .toolLogoGrid,
-  .ratingMethodGrid {
+  .ratingMethodGrid,
+  .trendingGrid,
+  .comparisonGrid,
+  .directoryGrid,
+  .dealTypeGrid,
+  .dealToolGrid {
     grid-template-columns: 1fr;
+  }
+
+  .trendingCard,
+  .directoryToolHead {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .trendingCard .score,
+  .directoryToolHead strong {
+    justify-self: start;
   }
 
   .floatingPanel {

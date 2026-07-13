@@ -1794,6 +1794,13 @@ export function toolInitials(tool: Pick<Software, "name">) {
     .join("");
 }
 
+export function toolLogoHue(tool: Pick<Software, "name">) {
+  const total = tool.name
+    .split("")
+    .reduce((sum, character) => sum + character.charCodeAt(0), 0);
+  return total % 360;
+}
+
 export function pricingChecklist(tool: Software) {
   return [
     `Confirm what ${tool.pricing.toLowerCase()} includes today.`,
@@ -1954,6 +1961,75 @@ export const comparisonPages = categoryNiches.flatMap((niche) =>
 export function comparisonFromSlug(slug: string) {
   return comparisonPages.find((comparison) => comparison.slug === slug);
 }
+
+export const trendingToolNames = [
+  "ChatGPT",
+  "Claude",
+  "ClickUp",
+  "Fireflies.ai",
+  "Canva",
+  "Buffer",
+  "1Password",
+  "Shopify",
+  "Intercom",
+  "PandaDoc",
+  "Social Champ",
+  "Riverside",
+];
+
+export const trendingTools = trendingToolNames
+  .map((name) => uniqueSoftware.find((tool) => tool.name === name))
+  .filter((tool): tool is Software => Boolean(tool));
+
+export const popularComparisonSlugs = [
+  "chatgpt-vs-claude",
+  "clickup-vs-mondaycom",
+  "firefliesai-vs-otterai",
+  "buffer-vs-hootsuite",
+  "1password-vs-nordpass",
+  "hubspot-vs-pipedrive",
+  "canva-vs-adobe-express",
+  "pandadoc-vs-docusign",
+];
+
+export const popularComparisons = popularComparisonSlugs
+  .map((slug) => comparisonFromSlug(slug))
+  .filter((comparison): comparison is NonNullable<ReturnType<typeof comparisonFromSlug>> =>
+    Boolean(comparison),
+  );
+
+export const useCaseGroups = [
+  {
+    label: "For AI work",
+    description: "Chat, coding, research, meeting notes, and AI-assisted visibility.",
+    niches: ["LLM assistants", "AI coding tools", "AI meeting notes", "SEO / AI visibility"] satisfies CategoryNiche[],
+  },
+  {
+    label: "For marketing",
+    description: "Email, social, forms, SEO, design, content, and lead capture.",
+    niches: ["Email marketing", "Social media scheduling", "Forms & surveys", "Design & creator tools"] satisfies CategoryNiche[],
+  },
+  {
+    label: "For sales teams",
+    description: "CRM, proposals, scheduling, customer support, and revenue workflows.",
+    niches: ["CRM / sales", "Proposal & e-signature", "Scheduling & calendar", "Customer support software"] satisfies CategoryNiche[],
+  },
+  {
+    label: "For creators",
+    description: "Courses, funnels, video, podcasts, design assets, and newsletters.",
+    niches: ["Courses / funnels", "Video & podcast tools", "Design & creator tools", "Email marketing"] satisfies CategoryNiche[],
+  },
+  {
+    label: "For operations",
+    description: "Team productivity, docs, automations, forms, and mini SaaS workflows.",
+    niches: ["Team productivity platforms", "Docs & knowledge base", "Mini SaaS / productivity", "Forms & surveys"] satisfies CategoryNiche[],
+  },
+  {
+    label: "For websites and commerce",
+    description: "Hosting, ecommerce, security, support, and conversion workflows.",
+    niches: ["Hosting", "Ecommerce", "Password & security", "Customer support software"] satisfies CategoryNiche[],
+  },
+];
 
 export const siteUrl = "https://sakustack.com";
 export const structuredData = [

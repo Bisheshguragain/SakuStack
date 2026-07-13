@@ -24,6 +24,8 @@ export function GET() {
     "",
     "## Important URLs",
     `- Homepage: ${siteUrl}/`,
+    `- Tool Directory: ${siteUrl}/tools`,
+    `- Software Deals: ${siteUrl}/deals`,
     `- About: ${siteUrl}/about`,
     `- Knowledge Centre: ${siteUrl}/knowledge-centre`,
     `- Editorial policy: ${siteUrl}/editorial-policy`,
