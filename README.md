@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SakuStack
 
-## Getting Started
+SakuStack is a Next.js affiliate discovery site for software buyers, with category pages, reviews, comparisons, buying guides, SEO metadata, structured data, robots.txt, sitemap.xml, llms.txt, and compliance pages.
 
-First, run the development server:
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` or pass another port:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run dev -- -p 3005
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Production Build
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Netlify Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This repository includes `netlify.toml` for Netlify.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Use these settings when connecting the GitHub repo:
 
-## Deploy on Vercel
+- Repository: `Bisheshguragain/SakuStack`
+- Branch: `main`
+- Build command: `npm run build`
+- Publish directory: `.next`
+- Framework preset: Next.js
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Netlify should use the Next.js runtime through `@netlify/plugin-nextjs`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Environment Variables
+
+Optional:
+
+```bash
+NEXT_PUBLIC_ADSENSE_PUBLISHER_ID=pub-0000000000000000
+```
+
+Set this in Netlify once the real Google AdSense publisher ID is available. Do not commit real secrets or private API keys.
+
+## Important URLs
+
+- `/sitemap.xml`
+- `/robots.txt`
+- `/llms.txt`
+- `/ads.txt`
+- `/affiliate-disclosure`
+- `/privacy-policy`
+- `/terms`
+- `/methodology`
+- `/monetization-policy`
