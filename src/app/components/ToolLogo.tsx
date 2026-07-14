@@ -28,6 +28,7 @@ export default function ToolLogo({ tool, className }: ToolLogoProps) {
     <span
       className={classes}
       style={{ "--logo-hue": toolLogoHue(tool) } as LogoStyle}
+      role="img"
       aria-label={`${tool.name} logo`}
       title={`${tool.name} logo`}
     >
@@ -42,7 +43,7 @@ export default function ToolLogo({ tool, className }: ToolLogoProps) {
           onError={() => setFailed(true)}
         />
       ) : null}
-      <span className={styles.toolLogoInitials} aria-hidden={showImage ? "true" : "false"}>
+      <span className={styles.toolLogoInitials} aria-hidden="true">
         {toolInitials(tool)}
       </span>
     </span>
