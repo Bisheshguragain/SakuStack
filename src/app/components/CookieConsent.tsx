@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 
 import styles from "../page.module.css";
 
-const consentStorageKey = "sakustack-cookie-consent-v1";
+export const consentStorageKey = "sakustack-cookie-consent-v1";
+export const consentChangedEvent = "sakustack-cookie-consent-changed";
 
 type ConsentChoice = "accepted" | "rejected";
 type ConsentState = ConsentChoice | "unknown" | null;
@@ -30,6 +31,7 @@ export default function CookieConsent() {
 
   function saveChoice(nextChoice: ConsentChoice) {
     window.localStorage.setItem(consentStorageKey, nextChoice);
+    window.dispatchEvent(new CustomEvent(consentChangedEvent, { detail: nextChoice }));
     setChoice(nextChoice);
   }
 

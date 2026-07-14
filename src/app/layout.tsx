@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
 import CookieConsent from "./components/CookieConsent";
 import GlobalFooter from "./components/GlobalFooter";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 import MobileMenu from "./components/MobileMenu";
 import { defaultOgImage, siteName, siteUrl } from "./software-data";
 import "./globals.css";
@@ -188,6 +190,9 @@ export default function RootLayout({
         {children}
         <MobileMenu />
         <GlobalFooter />
+        <Suspense fallback={null}>
+          <GoogleAnalytics />
+        </Suspense>
         <CookieConsent />
       </body>
     </html>
