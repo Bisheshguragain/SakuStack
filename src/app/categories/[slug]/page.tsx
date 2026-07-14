@@ -21,6 +21,7 @@ import {
   comparisonFocus,
   comparisonPages,
   defaultOgImage,
+  editorialRatingCount,
   lastUpdated,
   ratingMethodologyNote,
   siteName,
@@ -145,6 +146,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: tool.rating,
+            ratingCount: editorialRatingCount,
             bestRating: 5,
             worstRating: 1,
           },

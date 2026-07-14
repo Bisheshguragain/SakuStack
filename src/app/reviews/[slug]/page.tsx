@@ -21,6 +21,7 @@ import {
   comparisonFocus,
   defaultOgImage,
   editorialAuthor,
+  editorialRatingCount,
   evidenceChecklist,
   lastUpdated,
   pricingChecklist,
@@ -182,6 +183,13 @@ export default async function ReviewPage({ params }: ReviewPageProps) {
         url: toolUrl(tool),
         applicationCategory: tool.niche,
         description: tool.bestFor,
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: tool.rating,
+          ratingCount: editorialRatingCount,
+          bestRating: 5,
+          worstRating: 1,
+        },
       },
       reviewRating: {
         "@type": "Rating",

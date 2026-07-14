@@ -44,6 +44,7 @@ export const externalRatingsChecked = "July 13, 2026";
 export const seoYear = "2026";
 export const siteName = "SakuStack";
 export const defaultOgImage = "/sakustack-hero-dashboard.webp";
+export const editorialRatingCount = 1;
 export const editorialAuthor = {
   name: "SakuStack Editorial Team",
   title: "Software research and buying guide editors",
@@ -2065,6 +2066,7 @@ export const structuredData = [
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: tool.rating,
+          ratingCount: editorialRatingCount,
           bestRating: 5,
           worstRating: 1,
         },
