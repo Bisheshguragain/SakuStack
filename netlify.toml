@@ -7,3 +7,27 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "http://sakustack.com/*"
+  to = "https://sakustack.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.sakustack.com/*"
+  to = "https://sakustack.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.sakustack.com/*"
+  to = "https://sakustack.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://sakustack.netlify.app/*"
+  to = "https://sakustack.com/:splat"
+  status = 301
+  force = true
