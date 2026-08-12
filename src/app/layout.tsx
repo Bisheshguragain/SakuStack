@@ -5,7 +5,7 @@ import CookieConsent from "./components/CookieConsent";
 import GlobalFooter from "./components/GlobalFooter";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import MobileMenu from "./components/MobileMenu";
-import { defaultOgImage, siteName, siteUrl } from "./software-data";
+import { brandIcon, brandLogo, defaultOgImage, siteName, siteUrl } from "./software-data";
 import "./globals.css";
 
 const inter = Inter({
@@ -25,8 +25,8 @@ const globalStructuredData = [
     "@type": "Organization",
     name: siteName,
     url: siteUrl,
-    logo: `${siteUrl}/icon`,
-    image: `${siteUrl}${defaultOgImage}`,
+    logo: `${siteUrl}${brandIcon}`,
+    image: `${siteUrl}${brandLogo}`,
     knowsAbout: [
       "Software reviews",
       "SaaS comparisons",
@@ -131,6 +131,28 @@ export const metadata: Metadata = {
   referrer: "origin-when-cross-origin",
   alternates: {
     canonical: "/",
+  },
+  icons: {
+    icon: [
+      {
+        url: "/favicon-32x32.png",
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        url: brandIcon,
+        type: "image/png",
+        sizes: "512x512",
+      },
+    ],
+    shortcut: ["/favicon.ico"],
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        type: "image/png",
+        sizes: "180x180",
+      },
+    ],
   },
   openGraph: {
     title: `${siteName} | Software Reviews and Comparisons`,

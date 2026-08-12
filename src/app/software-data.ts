@@ -44,6 +44,8 @@ export const externalRatingsChecked = "July 13, 2026";
 export const seoYear = "2026";
 export const siteName = "SakuStack";
 export const defaultOgImage = "/sakustack-hero-dashboard.webp";
+export const brandIcon = "/sakustack-icon-512.png";
+export const brandLogo = "/sakustack-logo.png";
 export const editorialRatingCount = 1;
 export const editorialAuthor = {
   name: "SakuStack Editorial Team",
