@@ -9,11 +9,11 @@ import {
   categoryHref,
   categoryNiches,
   comparisonPages,
+  siteUrl,
   softwareHref,
   uniqueSoftware,
 } from "./software-data";
 
-const siteUrl = "https://sakustack.com";
 const legalRoutes = [
   "/about",
   "/editorial-policy",

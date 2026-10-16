@@ -10,24 +10,24 @@
 
 [[redirects]]
   from = "http://sakustack.com/*"
-  to = "https://sakustack.com/:splat"
+  to = "https://www.sakustack.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "http://www.sakustack.com/*"
-  to = "https://sakustack.com/:splat"
+  to = "https://www.sakustack.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.sakustack.com/*"
-  to = "https://sakustack.com/:splat"
+  from = "https://sakustack.com/*"
+  to = "https://www.sakustack.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://sakustack.netlify.app/*"
-  to = "https://sakustack.com/:splat"
+  to = "https://www.sakustack.com/:splat"
   status = 301
   force = true

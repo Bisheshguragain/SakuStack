@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = "https://sakustack.com";
+import { siteUrl } from "./software-data";
 
 const allowedUserAgents = [
   "*",
@@ -43,6 +43,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     })),
     sitemap: `${siteUrl}/sitemap.xml`,
-    host: "sakustack.com",
+    host: "www.sakustack.com",
   };
 }

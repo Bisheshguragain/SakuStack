@@ -2049,7 +2049,7 @@ export const useCaseGroups = [
   },
 ];
 
-export const siteUrl = "https://sakustack.com";
+export const siteUrl = "https://www.sakustack.com";
 export const structuredData = [
   {
     "@context": "https://schema.org",
